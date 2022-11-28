@@ -24,15 +24,11 @@ namespace Torpedo_Game
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void pvspButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PvsPWindow pvsp = new PvsPWindow();
+            pvsp.Show();
+            mainWindow.Close();
         }
 
         private void pvsaiButton_Click(object sender, RoutedEventArgs e)

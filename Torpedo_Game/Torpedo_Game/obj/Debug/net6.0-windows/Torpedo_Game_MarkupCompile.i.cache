@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Nandi\source\repos\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
+C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
 Torpedo_Game
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Nandi\source\repos\Torpedo_Game\Torpedo_Game\App.xaml
-11407045341
+C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
+21591910308
 
-5-1233078270
+6-1053681459
 194-1103864946
-MainWindow.xaml;
+MainWindow.xaml;PvsPWindow.xaml;
 
-False
+True
 

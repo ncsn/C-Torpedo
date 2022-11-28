@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nandi\\source\\repos\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+      "projectUniqueName": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
       "projectName": "Torpedo_Game",
-      "projectPath": "C:\\Users\\Nandi\\source\\repos\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+      "projectPath": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
       "packagesPath": "C:\\Users\\Nandi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nandi\\source\\repos\\Torpedo_Game\\Torpedo_Game\\obj\\",
+      "outputPath": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Nandi\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,21 +25,26 @@ namespace Torpedo_Game
         {
             InitializeComponent();
         }
-        private void pvspButton_Click(object sender, RoutedEventArgs e)
+
+        private void PvsPButton_Click(object sender, RoutedEventArgs e)
         {
-            PvsPWindow pvsp = new PvsPWindow();
-            pvsp.Show();
+            PvsPWindow pvsPWindow = new PvsPWindow();
+            pvsPWindow.Show();
             mainWindow.Close();
         }
 
-        private void pvsaiButton_Click(object sender, RoutedEventArgs e)
+        private void PvsAIButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PvsAIWindow pvsAIWindow = new PvsAIWindow();
+            pvsAIWindow.Show();
+            mainWindow.Close();
         }
 
         private void scoresButton_Click(object sender, RoutedEventArgs e)
         {
-
+            ScoresWindow scoresWindow = new ScoresWindow();
+            scoresWindow.Show();
+            mainWindow.Close();
         }
     }
 }

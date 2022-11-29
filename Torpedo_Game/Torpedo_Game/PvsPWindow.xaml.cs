@@ -19,9 +19,27 @@ namespace Torpedo_Game
     /// </summary>
     public partial class PvsPWindow : Window
     {
+        private string player1Name;
+        private string player2Name;
         public PvsPWindow()
         {
             InitializeComponent();
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            pvspWindow.Close();
+        }
+
+        private void playButton_Click(object sender, RoutedEventArgs e)
+        {
+            player1Name = Player1TextBox.Text;
+            player2Name = Player2TextBox.Text;
+            Game game = new Game(player1Name, player2Name, sender);
+            game.Show();
+            pvspWindow.Close();
         }
     }
 }

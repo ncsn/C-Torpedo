@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        Name="mainWindow">
+        x:Name="mainWindow">
     <StackPanel>
-        <Button Name="pvspButton" Click="pvspButton_Click" ClickMode="Press">Player vs Player</Button>
-        <Button Name="pvsaiButton" Click="pvsaiButton_Click" ClickMode="Press">Player vs AI</Button>
-        <Button Name="scoresButton" Click="scoresButton_Click" ClickMode="Press">Scores</Button>
+        <Button Content="Player vs Player" Name="PvsPButton" Click="PvsPButton_Click" ClickMode="Press"/>
+        <Button Content="Player vs AI" Name="PvsAIButton" Click="PvsAIButton_Click" ClickMode="Press"/>
+        <Button Content="Scores" Name="scoresButton" Click="scoresButton_Click" ClickMode="Press"/>
     </StackPanel>
 </Window>

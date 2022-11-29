@@ -7,15 +7,33 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Game.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PvsAIWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PvsPWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ScoresWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Game.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="PvsAIWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="PvsPWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ScoresWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

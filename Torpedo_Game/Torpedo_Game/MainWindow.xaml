@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
         Title="Torpedo" Height="450" Width="800"
+        
         x:Name="mainWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
         <StackPanel.Background>

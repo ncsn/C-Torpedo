@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
-        Title="PvsAIWindow" Height="450" Width="800"
-        x:Name="pvsaiWindow">
+        Title="Torpedo" Height="450" Width="800"
+        x:Name="pvsaiWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
-        <TextBox x:Name="PlayerName">Player name</TextBox>
-        <Button x:Name="playButton" Click="playButton_Click" ClickMode="Press" Content="Play"/>
-        <Button x:Name="backButton" Click="backButton_Click" ClickMode="Press" Content="Back to the MainWindow"/>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/bg.jpg"/>
+        </StackPanel.Background>
+        <Label Width="309" Foreground="White" FontSize="48" FontFamily="Bernard MT Condensed" Margin="0,40,0,20">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect> Player versus AI
+        </Label>
+        <Label Width="205" Height="30" Margin="0,0,-2,10" Padding="0,8,0,0" FontWeight="Bold" FontSize="16" Foreground="White">Player</Label>
+        <TextBox x:Name="PlayerName" Width="189" Height="30" Margin="0,0,-2,40"></TextBox>
+        <Button Content="Play" x:Name="playButton" Click="playButton_Click" ClickMode="Press" Width="160" Height="30" Margin="0,0,-2,15" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
+        <Button Content="Back" x:Name="backButton" Click="backButton_Click" ClickMode="Press" Width="160" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
     </StackPanel>
 </Window>

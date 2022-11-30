@@ -5,10 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
-        Title="ScoresWindow" Height="450" Width="800"
-        x:Name="scoreWindow">
+        Title="Torpedo" Height="450" Width="800"
+        x:Name="scoreWindow" RenderTransformOrigin="0.5,0.5" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
-        <TextBox>Scores</TextBox>
-        <Button Content="Back to the MainWindow" x:Name="backButton" Click="backButton_Click" ClickMode="Press"/>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/bg.jpg"/>
+        </StackPanel.Background>
+        <Label Width="124" Foreground="White" FontSize="48" FontFamily="Bernard MT Condensed" Margin="0,40,0,40">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect> Scores
+        </Label>
+        <TextBox Width="325" Height="130" Margin="0,0,0,10"></TextBox>
+        <Button Content="Back" x:Name="backButton" Click="backButton_Click" ClickMode="Press" Width="160" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
     </StackPanel>
 </Window>

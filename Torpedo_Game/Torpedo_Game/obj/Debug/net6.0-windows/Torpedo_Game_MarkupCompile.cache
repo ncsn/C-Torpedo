@@ -4,16 +4,16 @@
 exe
 C#
 .cs
-C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
+C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
 Torpedo_Game
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
+C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
 5-848376188
 
 7-380174868
-2001897903366
+199-224193799
 Game.xaml;MainWindow.xaml;PvsAIWindow.xaml;PvsPWindow.xaml;ScoresWindow.xaml;
 
 False

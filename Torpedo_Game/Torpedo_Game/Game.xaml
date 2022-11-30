@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
-        Title="Game" Height="450" Width="800">
+        Title="Torpedo" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
         <TextBox>Game</TextBox>
         <TextBlock x:Name="Player1TextBox"></TextBlock>

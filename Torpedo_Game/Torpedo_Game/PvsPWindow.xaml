@@ -5,12 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
-        Title="PvsPWindow" Height="450" Width="800"
-        x:Name="pvspWindow">
+        Title="Torpedo" Height="450" Width="800"
+        x:Name="pvspWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
-        <TextBox x:Name="Player1TextBox">Player1</TextBox>
-        <TextBox x:Name="Player2TextBox">Player2</TextBox>
-        <Button x:Name="playButton" Click="playButton_Click" ClickMode="Press" Content="Play"/>
-        <Button x:Name="backButton" Click="backButton_Click" ClickMode="Press" Content="Back to the MainWindow"/>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/bg.jpg"/>
+        </StackPanel.Background>
+        <Label Width="392" Foreground="White" FontSize="48" FontFamily="Bernard MT Condensed" Margin="0,40,0,20">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect> Player versus Player
+        </Label>
+        <Label Width="205" Height="30" Margin="0,0,-2,10" Padding="0,8,0,0" FontWeight="Bold" FontSize="16" Foreground="White">Player1</Label>
+        <TextBox x:Name="Player1TextBox" Width="189" Height="30" Margin="0,0,0,10"></TextBox>
+        <Label Width="205" Height="30" Margin="0,0,-2,10" Padding="0,8,0,0" FontWeight="Bold" FontSize="16" Foreground="White">Player2</Label>
+        <TextBox x:Name="Player2TextBox" Width="189" Height="30" Margin="0,0,0,40"></TextBox>
+        <Button Content="Play" x:Name="playButton" Click="playButton_Click" ClickMode="Press" Width="160" Height="30" Margin="0,0,-2,15" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
+        <Button Content="Back" x:Name="backButton" Click="backButton_Click" ClickMode="Press"  Width="160" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
     </StackPanel>
 </Window>

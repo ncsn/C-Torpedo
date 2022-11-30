@@ -5,11 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        x:Name="mainWindow">
+        Title="Torpedo" Height="450" Width="800"
+        x:Name="mainWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <StackPanel>
-        <Button Content="Player vs Player" Name="PvsPButton" Click="PvsPButton_Click" ClickMode="Press"/>
-        <Button Content="Player vs AI" Name="PvsAIButton" Click="PvsAIButton_Click" ClickMode="Press"/>
-        <Button Content="Scores" Name="scoresButton" Click="scoresButton_Click" ClickMode="Press"/>
+        <StackPanel.Background>
+            <ImageBrush ImageSource="/bg.jpg" Stretch="UniformToFill"/>
+        </StackPanel.Background>
+        <Label Width="241" Foreground="White" FontSize="72" FontFamily="Bernard MT Condensed" Margin="0,40,0,100">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect> Torpedo
+        </Label>
+        <Button Content="Player vs Player" Name="PvsPButton" Click="PvsPButton_Click" ClickMode="Press" Width="189" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
+        <Button Content="Player vs AI" Name="PvsAIButton" Click="PvsAIButton_Click" ClickMode="Press" Width="189" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
+        <Button Content="Scores" x:Name="scoresButton" Click="scoresButton_Click" ClickMode="Press" Width="189" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
     </StackPanel>
 </Window>

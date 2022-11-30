@@ -28,9 +28,12 @@ namespace Torpedo_Game
         private void playButton_Click(object sender, RoutedEventArgs e)
         {
             playerName = PlayerName.Text;
-            Game game = new Game(playerName, "AI", sender);
-            game.Show();
-            pvsaiWindow.Close();
+            if (playerNameFilter(playerName))
+            {
+                Game game = new Game(playerName, "AI", sender);
+                game.Show();
+                pvsaiWindow.Close();
+            }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -38,6 +41,41 @@ namespace Torpedo_Game
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             pvsaiWindow.Close();
+        }
+
+        private bool playerNameFilter(string p)
+        {
+            List<char> specialCharacters = new List<char>();
+            char[] spec = new char[] { '~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}', ']', '|', ':', ';', '"', '<', ',', '>', '.', '?', '/', ' ', ' ' };
+            specialCharacters.AddRange(spec);
+            int error = 0;
+            if (!string.IsNullOrEmpty(p))
+            {
+                for (int i = 0; i < p.Length; i++)
+                {
+                    for (int j = 0; j < specialCharacters.Count; j++)
+                    {
+                        if (p[i] == specialCharacters[j])
+                        {
+                            error++;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
+            if (error > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

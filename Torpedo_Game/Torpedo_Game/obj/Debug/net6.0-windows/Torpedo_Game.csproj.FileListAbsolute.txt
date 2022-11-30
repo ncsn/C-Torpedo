@@ -83,3 +83,6 @@ C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.Properties.Resources.resources
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.csproj.GenerateResource.cache
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game_Content.g.cs
+C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game_Content.g.cs
+C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.Properties.Resources.resources
+C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.csproj.GenerateResource.cache

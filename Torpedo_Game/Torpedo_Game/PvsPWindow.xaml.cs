@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -37,9 +38,48 @@ namespace Torpedo_Game
         {
             player1Name = Player1TextBox.Text;
             player2Name = Player2TextBox.Text;
-            Game game = new Game(player1Name, player2Name, sender);
-            game.Show();
-            pvspWindow.Close();
+
+            if (playerNameFilter(player1Name) && playerNameFilter(player2Name))
+            {
+                Game game = new Game(player1Name, player2Name, sender);
+                game.Show();
+                pvspWindow.Close();
+            }
+        }
+
+        private bool playerNameFilter(string p)
+        {
+            List<char> specialCharacters = new List<char>();
+            char[] spec = new char[] { '~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '+', '=', '{', '[', '}', ']', '|', ':', ';', '"', '<', ',', '>', '.', '?', '/', ' ', ' ' };
+            specialCharacters.AddRange(spec);
+            int error = 0;
+            if (!string.IsNullOrEmpty(p))
+            {
+                for (int i = 0; i < p.Length; i++)
+                {
+                    for (int j = 0; j < specialCharacters.Count; j++)
+                    {
+                        if (p[i] == specialCharacters[j])
+                        {
+                            error++;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+
+
+            if (error > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

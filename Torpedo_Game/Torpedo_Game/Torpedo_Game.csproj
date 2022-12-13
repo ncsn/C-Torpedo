@@ -12,6 +12,7 @@
   <ItemGroup>
     <None Remove="Background.gif" />
     <None Remove="bg.jpg" />
+    <None Remove="bg_game.png" />
     <None Remove="d6h0i32-15f2929e-0015-44de-a2c9-59d30e2923f8.gif" />
   </ItemGroup>
 
@@ -26,6 +27,7 @@
 
   <ItemGroup>
     <Resource Include="bg.jpg" />
+    <Resource Include="bg_game.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,8 @@ namespace Torpedo_Game
         private string player1Name;
         private string player2Name;
         private object sender;
-        private Button A1;
+
+        public int ships = 2;
 
         public Game()
         {
@@ -37,12 +38,26 @@ namespace Torpedo_Game
             this.sender = sender;
             Player1TextBox.Text = player1Name;
             Player2TextBox.Text = player2Name;
+            Restart();
+        }
+
+        public void Restart()
+        {
             
         }
 
-        private void A1_Click(object sender, RoutedEventArgs e)
+        public void PlayerPositionButtonEvent(object sender, EventArgs e)
         {
 
+            if (ships > 0)
+            {
+                var button = (Button)sender;
+
+                button.IsEnabled = false;
+                button.Tag = "ship";
+                button.Background = Brushes.Gray;
+                ships -= 1;
+            }
         }
     }
 }

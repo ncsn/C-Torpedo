@@ -7336,19 +7336,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Zsozso\\.nuget\\packages\\": {}
+    "C:\\Users\\Nandi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+      "projectUniqueName": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
       "projectName": "Torpedo_Game",
-      "projectPath": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
-      "packagesPath": "C:\\Users\\Zsozso\\.nuget\\packages\\",
-      "outputPath": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
+      "projectPath": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+      "packagesPath": "C:\\Users\\Nandi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Zsozso\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Nandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7402,7 +7402,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   },

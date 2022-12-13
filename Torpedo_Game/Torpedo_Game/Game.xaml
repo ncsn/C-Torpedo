@@ -6,77 +6,138 @@
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
         Title="Torpedo" Height="800" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="Flat_Button" TargetType="{x:Type Button}">
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Opacity="1" Color="White"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+
+                        <Border x:Name="border"
+                         SnapsToDevicePixels="True"
+                         BorderThickness="1"
+                         Padding="4,2"
+                         BorderBrush="Gray"
+                         CornerRadius="3"
+                         Background="{TemplateBinding Background}">
+                            <Grid>
+                                <ContentPresenter 
+                        Margin="2"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        RecognizesAccessKey="True" />
+
+                            </Grid>
+                        </Border>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation To="#808080"
+                                        Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                                        FillBehavior="HoldEnd" Duration="0:0:0.25" AutoReverse="False" RepeatBehavior="1x"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation
+                                            Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
+                                            FillBehavior="HoldEnd" Duration="0:0:0.25" AutoReverse="False" RepeatBehavior="1x"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
+
+                </Trigger>
+
+
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Canvas RenderTransformOrigin="0.205,0.306">
         <Canvas.Background>
             <ImageBrush ImageSource="/bg_game.png"/>
         </Canvas.Background>
         <TextBlock x:Name="Player1TextBox" Foreground="White" FontSize="24" FontFamily="Bernard MT Condensed" Width="256" Height="53" Margin="25,25,0,0" Canvas.Left="346" Canvas.Top="4"/>
         <TextBlock x:Name="Player2TextBox" Foreground="White" FontSize="24" FontFamily="Bernard MT Condensed" Width="256" Height="53" Margin="25,0,0,0" Canvas.Left="48" Canvas.Top="30"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="326"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="326"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="326"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="326"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="326"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="326"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="326"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="326"/>
-        <Button Height="54" Width="55" Canvas.Left="266" Canvas.Top="380"/>
-        <Button Height="54" Width="55" Canvas.Left="323" Canvas.Top="380"/>
-        <Button Height="54" Width="55" Canvas.Left="379" Canvas.Top="380"/>
-        <Button Height="54" Width="55" Canvas.Left="435" Canvas.Top="380"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="381"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="381"/>
-        <Button Height="54" Width="55" Canvas.Left="603" Canvas.Top="380"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="381"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="435"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="435"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="490"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="490"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="544"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="544"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="599"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="599"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="654"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="654"/>
-        <Button Height="53" Width="55" Canvas.Left="266" Canvas.Top="708"/>
-        <Button Height="53" Width="55" Canvas.Left="323" Canvas.Top="708"/>
-        <Button Height="53" Width="55" Canvas.Left="379" Canvas.Top="708"/>
-        <Button Height="53" Width="55" Canvas.Left="435" Canvas.Top="708"/>
-        <Button Height="53" Width="55" Canvas.Left="491" Canvas.Top="708"/>
-        <Button Height="53" Width="55" Canvas.Left="547" Canvas.Top="708"/>
-        <Button Height="53" Width="55" Canvas.Left="603" Canvas.Top="708"/>
-        <Button Height="53" Width="54" Canvas.Left="660" Canvas.Top="708"/>
-        <Button x:Name="A1_Copy" Height="53" Width="55" Canvas.Left="806" Canvas.Top="327"/>
+        <Button Style="{StaticResource Flat_Button}" x:Name="A1" Click="PlayerPositionButtonEvent" Height="53" Width="55" Canvas.Left="266" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" x:Name="B1" Click="PlayerPositionButtonEvent" Height="53" Width="55" Canvas.Left="323" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" x:Name="C1" Click="PlayerPositionButtonEvent" Height="53" Width="55" Canvas.Left="379" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="326"/>
+        <Button Style="{StaticResource Flat_Button}" Height="54" Width="55" Canvas.Left="266" Canvas.Top="380"/>
+        <Button Style="{StaticResource Flat_Button}" Height="54" Width="55" Canvas.Left="323" Canvas.Top="380"/>
+        <Button Style="{StaticResource Flat_Button}" Height="54" Width="55" Canvas.Left="379" Canvas.Top="380"/>
+        <Button Style="{StaticResource Flat_Button}" Height="54" Width="55" Canvas.Left="435" Canvas.Top="380"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="381"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="381"/>
+        <Button Style="{StaticResource Flat_Button}" Height="54" Width="55" Canvas.Left="603" Canvas.Top="380"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="381"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="266" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="323" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="379" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="435"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="266" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="323" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="379" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="490"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="266" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="323" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="379" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="544"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="266" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="323" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="379" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="599"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="266" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="323" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="379" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="654"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="266" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="323" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="379" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="435" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="491" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="547" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="55" Canvas.Left="603" Canvas.Top="708"/>
+        <Button Style="{StaticResource Flat_Button}" Height="53" Width="54" Canvas.Left="660" Canvas.Top="708"/>
+        <Button Height="53" Width="55" Canvas.Left="806" Canvas.Top="327"/>
         <Button Height="53" Width="55" Canvas.Left="863" Canvas.Top="327"/>
         <Button Height="53" Width="55" Canvas.Left="919" Canvas.Top="327"/>
         <Button Height="53" Width="55" Canvas.Left="975" Canvas.Top="327"/>

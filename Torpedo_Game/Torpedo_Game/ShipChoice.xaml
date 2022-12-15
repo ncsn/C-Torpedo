@@ -87,8 +87,6 @@
             </Grid.RowDefinitions>
         </Grid>
         <Image Grid.ColumnSpan="2" Margin="287,72,767,389" Grid.Row="1" Source="/carrier.jpg" Stretch="Fill"/>
-        <Image Grid.ColumnSpan="2" Margin="332,39,58,241" Grid.Row="1" Source="/carrier.jpg" Stretch="Fill"/>
-        <Image Grid.ColumnSpan="2" Margin="351,116,39,164" Grid.Row="1" Source="/carrier.jpg" Stretch="Fill"/>
         <Image Margin="304,94,784,408" Source="/carrier.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.Row="1"/>
         <Image Grid.ColumnSpan="2" Margin="309,144,805,361" Grid.Row="1" Source="/battleship.png" Stretch="Fill"/>
         <Image Grid.ColumnSpan="2" Margin="309,173,819,251" Grid.Row="1" Source="/cruiser.png" Stretch="Fill"/>

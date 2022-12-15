@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nagy2\\source\\repos\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj": {}
+    "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nagy2\\source\\repos\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj": {
+    "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nagy2\\source\\repos\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+        "projectUniqueName": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
         "projectName": "Torpedo_Game",
-        "projectPath": "C:\\Users\\nagy2\\source\\repos\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
-        "packagesPath": "C:\\Users\\nagy2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nagy2\\source\\repos\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
+        "projectPath": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+        "packagesPath": "C:\\Users\\Zsozso\\.nuget\\packages\\",
+        "outputPath": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nagy2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Zsozso\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net6.0-windows7.0"
+          "net6.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -55,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -67,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

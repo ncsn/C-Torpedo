@@ -30,8 +30,6 @@ namespace Torpedo_Game
             playerName = PlayerName.Text;
             if (playerNameFilter(playerName))
             {
-                Game game = new Game(playerName, "AI", sender);
-                game.Show();
                 pvsaiWindow.Close();
             }
         }

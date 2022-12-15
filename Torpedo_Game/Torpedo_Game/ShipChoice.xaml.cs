@@ -382,21 +382,21 @@ namespace Torpedo_Game
             {
                 if (player2PlaceShips)
                 {
-                    PvP player1BattleshipPlayfieldWindow = new(player1Name, player1PlayfieldGrid, player1BattleshipPlayfield, player2Name, playfield, battleshipPlayfield);
+                    Game player1BattleshipPlayfieldWindow = new(player1Name, player1PlayfieldGrid, player1BattleshipPlayfield, player2Name, playfield, battleshipPlayfield);
                     App.Current.MainWindow = player1BattleshipPlayfieldWindow;
                     this.Close();
                     player1BattleshipPlayfieldWindow.Show();
                 }
-                else if (vsComputer)
+                /*else if (vsComputer)
                 {
                     MainWindow battleshipPlayfieldWindow = new(playfield, battleshipPlayfield, player1Name);
                     App.Current.MainWindow = battleshipPlayfieldWindow;
                     this.Close();
                     battleshipPlayfieldWindow.Show();
-                }
+                }*/
                 else if (!vsComputer)
                 {
-                    ShipPlacement player2ShipPlacementWindow = new(player1Name, player2Name, playfield, battleshipPlayfield);
+                    ShipChoice player2ShipPlacementWindow = new(player1Name, player2Name, playfield, battleshipPlayfield);
                     App.Current.MainWindow = player2ShipPlacementWindow;
                     this.Close();
                     player2ShipPlacementWindow.Show();

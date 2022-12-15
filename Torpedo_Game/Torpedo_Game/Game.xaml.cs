@@ -21,43 +21,15 @@ namespace Torpedo_Game
     {
         private string player1Name;
         private string player2Name;
-        private object sender;
-
-        public int ships = 2;
-
-        public Game()
+        private char[,] myPlayfield = new char[10, 10];
+        public Game(string player1Name, Grid player1PlayfieldGrid, char[,] player1Playfield, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield)
         {
             InitializeComponent();
-        }
+            this.Title = player1Name;
+            this.myPlayfield = player1Playfield;
 
-        public Game(string p1, string p2, object sender)
-        {
-            InitializeComponent();
-            this.player1Name = p1;
-            this.player2Name = p2;
-            this.sender = sender;
-            Player1TextBox.Text = player1Name;
-            Player2TextBox.Text = player2Name;
-            Restart();
-        }
-
-        public void Restart()
-        {
-            
-        }
-
-        public void PlayerPositionButtonEvent(object sender, EventArgs e)
-        {
-
-            if (ships > 0)
-            {
-                var button = (Button)sender;
-
-                button.IsEnabled = false;
-                button.Tag = "ship";
-                button.Background = Brushes.Gray;
-                ships -= 1;
-            }
+            this.player1Name = player1Name;
+            this.player2Name = player2Name;
         }
     }
 }

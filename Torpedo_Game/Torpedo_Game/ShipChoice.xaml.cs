@@ -387,13 +387,13 @@ namespace Torpedo_Game
                     this.Close();
                     player1BattleshipPlayfieldWindow.Show();
                 }
-                /*else if (vsComputer)
+                else if (vsComputer)
                 {
-                    MainWindow battleshipPlayfieldWindow = new(playfield, battleshipPlayfield, player1Name);
+                    Game battleshipPlayfieldWindow = new(playfield, battleshipPlayfield, player1Name);
                     App.Current.MainWindow = battleshipPlayfieldWindow;
                     this.Close();
                     battleshipPlayfieldWindow.Show();
-                }*/
+                }
                 else if (!vsComputer)
                 {
                     ShipChoice player2ShipPlacementWindow = new(player1Name, player2Name, playfield, battleshipPlayfield);

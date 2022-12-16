@@ -30,7 +30,10 @@ namespace Torpedo_Game
             playerName = PlayerName.Text;
             if (playerNameFilter(playerName))
             {
+                ShipChoice player1ShipChoiceWindow = new(playerName);
+                App.Current.MainWindow = player1ShipChoiceWindow;
                 pvsaiWindow.Close();
+                player1ShipChoiceWindow.Show();
             }
         }
 

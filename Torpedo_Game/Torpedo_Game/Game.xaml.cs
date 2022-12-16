@@ -22,6 +22,9 @@ namespace Torpedo_Game
         private string player1Name;
         private string player2Name;
         private char[,] myPlayfield = new char[10, 10];
+
+        char[,] playerPlayfield = new char[10, 10];
+
         public Game(string player1Name, Grid player1PlayfieldGrid, char[,] player1Playfield, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield)
         {
             InitializeComponent();
@@ -30,6 +33,14 @@ namespace Torpedo_Game
 
             this.player1Name = player1Name;
             this.player2Name = player2Name;
+        }
+
+        public Game(Grid playfield, char[,] playerPlayfield, string player1Name)
+        {
+            InitializeComponent();
+
+            this.playerPlayfield = playerPlayfield;
+            this.player1Name = player1Name;
         }
     }
 }

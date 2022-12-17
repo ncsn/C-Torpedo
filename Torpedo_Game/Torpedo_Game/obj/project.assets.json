@@ -422,6 +422,19 @@
           "System.Xml.XDocument": "4.0.11"
         }
       },
+      "Newtonsoft.Json/13.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Prism.Core/8.1.97": {
         "type": "package",
         "compile": {
@@ -2894,6 +2907,36 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.0.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/13.0.2": {
+      "sha512": "R2pZ3B0UjeyHShm9vG+Tu0EBb2lC8b0dFzV9gVn50ofHXh9Smjk6kTn7A/FdAsC8B5cKib1OnGYOXxRBz5XQDg==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
       ]
     },
     "Prism.Core/8.1.97": {
@@ -7332,23 +7375,24 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "MvvmLightLibs >= 5.4.1.1",
+      "Newtonsoft.Json >= 13.0.2",
       "Prism.Core >= 8.1.97"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Nandi\\.nuget\\packages\\": {}
+    "C:\\Users\\Zsozso\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+      "projectUniqueName": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
       "projectName": "Torpedo_Game",
-      "projectPath": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
-      "packagesPath": "C:\\Users\\Nandi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nandi\\Documents\\GitHub\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
+      "projectPath": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\Torpedo_Game.csproj",
+      "packagesPath": "C:\\Users\\Zsozso\\.nuget\\packages\\",
+      "outputPath": "D:\\c#_proj\\C-Torpedo\\Torpedo_Game\\Torpedo_Game\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Nandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Zsozso\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7378,6 +7422,10 @@
             "target": "Package",
             "version": "[5.4.1.1, )"
           },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.2, )"
+          },
           "Prism.Core": {
             "target": "Package",
             "version": "[8.1.97, )"
@@ -7402,7 +7450,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   },

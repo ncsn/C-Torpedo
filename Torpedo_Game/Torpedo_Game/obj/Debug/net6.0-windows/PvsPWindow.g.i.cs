@@ -93,7 +93,7 @@ namespace Torpedo_Game {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Torpedo_Game;V1.0.0.0;component/pvspwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Torpedo_Game;component/pvspwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PvsPWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

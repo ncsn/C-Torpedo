@@ -10,11 +10,11 @@ none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
-5-848376188
+6-1880945189
 11912562017
-9-1381095901
+10-964126541
 199-224193799
-Game.xaml;MainWindow.xaml;PvsAIWindow.xaml;PvsPWindow.xaml;ScoresWindow.xaml;
+Game.xaml;MainWindow.xaml;PvsAIWindow.xaml;PvsPWindow.xaml;ScoresWindow.xaml;ShipChoice.xaml;
 
 True
 

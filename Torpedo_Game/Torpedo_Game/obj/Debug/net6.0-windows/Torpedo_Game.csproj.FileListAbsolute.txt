@@ -89,3 +89,4 @@ C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\ne
 C:\Users\nagy2\source\repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\ShipChoice.g.cs
 C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\ShipChoice.g.cs
 C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\ShipChoice.baml
+C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\ShipChoice.baml

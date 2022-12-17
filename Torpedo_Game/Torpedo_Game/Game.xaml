@@ -6,77 +6,208 @@
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
         Title="Torpedo" Height="800" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Window.Resources>
-        <Style x:Key="Flat_Button" TargetType="{x:Type Button}">
-            <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <SolidColorBrush Opacity="1" Color="White"/>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+            <GradientStop Color="#FFD0D6FF" Offset="1"/>
+            <GradientStop Color="White"/>
+        </LinearGradientBrush>
+    </Window.Background>
 
-                        <Border x:Name="border"
-                         SnapsToDevicePixels="True"
-                         BorderThickness="1"
-                         Padding="4,2"
-                         BorderBrush="Gray"
-                         CornerRadius="3"
-                         Background="{TemplateBinding Background}">
-                            <Grid>
-                                <ContentPresenter 
-                        Margin="2"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        RecognizesAccessKey="True" />
+    <Grid>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/bg.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
 
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Game Phase" FontFamily="Stencil" FontSize="30px" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+
+            <Label Grid.Row="1" Grid.Column="1" Content="A     B     C     D     E     F     G     H     I     J" FontFamily="Stencil" FontSize="21.6px" Margin="17,227,47,-197" />
+            <TextBlock Grid.Row="1" Grid.Column="0" Width="30px" Text="0 1 2 3 4 5 6 7 8 9" FontFamily="Stencil" FontSize="33px" Margin="390,301,7,-241" TextWrapping="Wrap" />
+
+            <Grid Height="400" Width="400" Name="leftTable" Grid.Row="1" Grid.Column="0" Background="Transparent" Margin="425,283,28,30" ShowGridLines="True" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Label Grid.Row="1" Grid.Column="2" Content="A     B     C     D     E     F     G     H     I     J" FontFamily="Stencil" FontSize="21.6px" Margin="33,241,32,-211" />
+            <TextBlock Grid.Row="1" Grid.Column="1" Width="30px" Text="0 1 2 3 4 5 6 7 8 9" FontFamily="Stencil" FontSize="33px" Margin="403,301,420,-241" TextWrapping="Wrap" Grid.ColumnSpan="2" />
+
+            <Grid Height="400" Width="400" Name="rightTable" Grid.Row="1" Grid.Column="1" Margin="423,283,30,30" ShowGridLines="True" Background="Transparent" PreviewMouseMove="onGridMouseOver" PreviewMouseLeftButtonDown="onGridMouseClick" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition Height="1*"></RowDefinition>
+                        <RowDefinition Height="3*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Click="surrendBtn_Click" x:Name="surrrendBtn" Content="Surrend" Width="190px" Height="45px" Margin="-809,635,832,-561"/>
+
+                    </Grid>
+
+                    <Button Content="Stats" Width="190px" Height="45px" Margin="-810,-37,1047,111" Click="stats_Click"/>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Width="250px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="-810,1,0,68">
+                            <Grid ShowGridLines="True" Name="carrierHpGrid" RenderTransformOrigin="0.491,0.582">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
                             </Grid>
                         </Border>
 
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+                        <Border Width="200px" Height="50px" BorderThickness="2" BorderBrush="Black" Margin="-810,66,847,3">
+                            <Grid ShowGridLines="True" Name="battleshipHpGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </Grid>
 
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="true">
-                    <Trigger.EnterActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation To="#808080"
-                                        Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
-                                        FillBehavior="HoldEnd" Duration="0:0:0.25" AutoReverse="False" RepeatBehavior="1x"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.EnterActions>
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Trigger.ExitActions>
-                        <BeginStoryboard>
-                            <Storyboard>
-                                <ColorAnimation
-                                            Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)" 
-                                            FillBehavior="HoldEnd" Duration="0:0:0.25" AutoReverse="False" RepeatBehavior="1x"/>
-                            </Storyboard>
-                        </BeginStoryboard>
-                    </Trigger.ExitActions>
+                        <Border Grid.Column="0" Height="50px" BorderThickness="2" BorderBrush="Black" Margin="-809,15,837,54">
+                            <Grid ShowGridLines="True" Name="cruiserHpGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
 
-                </Trigger>
+                        <Border Width="100px" Height="50px" BorderThickness="2" BorderBrush="Black" Margin="-809,80,887,-11">
+                            <Grid ShowGridLines="True" Name="submarineHpGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
 
+                        <Border Width="50px" Height="50px" BorderThickness="2" BorderBrush="Black" HorizontalAlignment="Left" Margin="-809,145,0,-76">
+                            <Grid ShowGridLines="True" Name="destroyerHpGrid" HorizontalAlignment="Left" Width="46">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+                    </Grid>
 
-            </Style.Triggers>
-        </Style>
-    </Window.Resources>
-    <Canvas RenderTransformOrigin="0.205,0.306">
-        <Canvas.Background>
-            <ImageBrush ImageSource="/bg_game.png"/>
-        </Canvas.Background>
-        <TextBlock x:Name="Player1TextBox" Foreground="White" FontSize="24" FontFamily="Bernard MT Condensed" Width="256" Height="53" Margin="25,25,0,0" Canvas.Left="346" Canvas.Top="4"/>
-        <TextBlock x:Name="Player2TextBox" Foreground="White" FontSize="24" FontFamily="Bernard MT Condensed" Width="256" Height="53" Margin="25,0,0,0" Canvas.Left="48" Canvas.Top="30"/>
-        
-    </Canvas>
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <Label Grid.Column="0" Content="Rounds:" FontFamily="Stencil" FontSize="30px" HorizontalContentAlignment="Right" Grid.ColumnSpan="2" Margin="16,-542,167,542"/>
+                        <Label Grid.Column="1" x:Name="roundsLabel" Content="0" FontFamily="Stencil" FontSize="30px" Margin="16,-542,-16,542"/>
+                    </Grid>
 
+                    <Grid Grid.Row="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <Label Content="Player hits:" FontFamily="Stencil" FontSize="26px" Margin="-740,-460,740,560"/>
+                        <Label x:Name="playerHitsLabel" Content="0" FontFamily="Stencil" FontSize="26px" Margin="-580,-460,697,553"/>
+
+                        <Label Content="Computer hits:" FontFamily="Stencil" FontSize="26px" Grid.ColumnSpan="3" Margin="136,-508,58,508"/>
+                        <Label Grid.Column="2" x:Name="computerHitsLabel" Content="0" FontFamily="Stencil" FontSize="26px" Margin="141,-508,14,508"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
 
 </Window>

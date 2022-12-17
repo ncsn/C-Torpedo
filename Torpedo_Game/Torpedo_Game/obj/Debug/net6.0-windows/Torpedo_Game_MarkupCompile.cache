@@ -4,17 +4,17 @@
 exe
 C#
 .cs
-C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
-Torpedo_Game
+C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
+Torpedo_Game_edqgogk1_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Nandi\Documents\GitHub\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
+C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
 6-1880945189
 11912562017
-10-964126541
-2001897903366
+18-1522639782
+398-448387598
 Game.xaml;MainWindow.xaml;PvsAIWindow.xaml;PvsPWindow.xaml;ScoresWindow.xaml;ShipChoice.xaml;
 
-False
+True
 

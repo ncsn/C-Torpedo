@@ -25,13 +25,14 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="206*"/>
+            <ColumnDefinition Width="853*"/>
         </Grid.ColumnDefinitions>
 
-        <Label x:Name="welcomeLabel" Content="Build your battlefield" FontFamily="Bernard MT Condensed" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="40" Foreground="White" Margin="44,0,0,0" Grid.Column="1"/>
+        <Label x:Name="welcomeLabel" Content="Build your battlefield" FontFamily="Bernard MT Condensed" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="40" Foreground="White" Margin="44,0,0,0" Grid.Column="2"/>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="99,0,0,0">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="99,0,0,0" Grid.ColumnSpan="2">
             <Button x:Name="carrierBtn" Content="Carrier" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch"/>
             <Button x:Name="battleshipBtn" Content="Battleship" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch" />
             <Button x:Name="cruiserBtn" Content="Cruiser" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch"/>
@@ -40,26 +41,26 @@
             <Button x:Name="Rotate" Content="Rotate" Click="rotateBtn_Click" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="1" Margin="112,560,0,0" Grid.RowSpan="2">
             <Button x:Name="RandomBtn" Click="randomBtn_Click" Content="Random" Width="185" Height="45" Margin="10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
             <Button x:Name="ResetBtn" Click="resetBtn_Click" Content="Reset" Width="185" Height="45" Margin="10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
             <Button x:Name="SubmitBtn" Click="submitBtn_Click" Content="Submit" Width="185" Height="45" Margin="10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
         </StackPanel>
 
-        <Label Grid.Column="1" Content=" A   B   C   D   E   F   G   H    I    J" FontFamily="Arial" FontSize="36" Margin="167,112,134,515" Foreground="White" FontWeight="Bold" Grid.RowSpan="2" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="0" FontFamily="Arial" FontSize="36" Margin="139,54,693,471" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="1" FontFamily="Arial" FontSize="36" Margin="139,102,693,423" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="2" FontFamily="Arial" FontSize="36" Margin="139,150,693,375" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="3" FontFamily="Arial" FontSize="36" Margin="139,198,693,327" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="4" FontFamily="Arial" FontSize="36" Margin="139,246,693,279" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="5" FontFamily="Arial" FontSize="36" Margin="139,293,693,232" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="6" FontFamily="Arial" FontSize="36" Margin="139,342,693,183" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="7" FontFamily="Arial" FontSize="36" Margin="139,390,693,135" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="8" FontFamily="Arial" FontSize="36" Margin="139,438,693,87" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="9" FontFamily="Arial" FontSize="36" Margin="139,486,693,39" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <Label Grid.Column="2" Content=" A   B   C   D   E   F   G   H    I    J" FontFamily="Arial" FontSize="36" Margin="167,112,134,417" Foreground="White" FontWeight="Bold" Grid.RowSpan="2" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="0" FontFamily="Arial" FontSize="36" Margin="139,54,667,453" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="1" FontFamily="Arial" FontSize="36" Margin="139,102,667,405" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="2" FontFamily="Arial" FontSize="36" Margin="139,150,667,357" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="3" FontFamily="Arial" FontSize="36" Margin="139,198,667,309" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="4" FontFamily="Arial" FontSize="36" Margin="139,246,667,261" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="5" FontFamily="Arial" FontSize="36" Margin="139,293,667,214" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="6" FontFamily="Arial" FontSize="36" Margin="139,342,667,165" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="7" FontFamily="Arial" FontSize="36" Margin="139,390,667,117" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="8" FontFamily="Arial" FontSize="36" Margin="139,438,665,69" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="9" FontFamily="Arial" FontSize="36" Margin="139,486,665,13" TextWrapping="Wrap" Foreground="White" FontWeight="Bold" />
 
 
-        <Grid Grid.Row="1" Grid.Column="1" Name="playfield" Margin="167,45,134,32" Background="Transparent" PreviewMouseMove="onGridMouseOver" PreviewMouseLeftButtonDown="onGridMouseClick" ShowGridLines="True">
+        <Grid Grid.Row="1" Grid.Column="2" Name="playfield" Margin="167,45,117,13" Background="Transparent" PreviewMouseMove="onGridMouseOver" PreviewMouseLeftButtonDown="onGridMouseClick" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
@@ -86,12 +87,12 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
         </Grid>
-        <Image Grid.ColumnSpan="2" Margin="287,72,767,389" Grid.Row="1" Source="/carrier.jpg" Stretch="Fill"/>
-        <Image Margin="304,94,784,408" Source="/carrier.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.Row="1"/>
-        <Image Grid.ColumnSpan="2" Margin="309,144,805,361" Grid.Row="1" Source="/battleship.png" Stretch="Fill"/>
-        <Image Grid.ColumnSpan="2" Margin="309,173,819,251" Grid.Row="1" Source="/cruiser.png" Stretch="Fill"/>
-        <Image Grid.ColumnSpan="2" Margin="314,273,848,236" Grid.Row="1" Source="/submarine.png" Stretch="Fill"/>
-        <Image Margin="297,280,853,129" Grid.Row="1" Source="/destroyer.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+
+        <Image Grid.ColumnSpan="2" Margin="84,94,770,408" Source="/carrier.png" Stretch="Fill" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Image Grid.ColumnSpan="2" Margin="88,144,800,361" Grid.Row="1" Source="/battleship.png" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Grid.ColumnSpan="2" Margin="88,173,819,251" Grid.Row="1" Source="/cruiser.png" Stretch="Fill" Grid.Column="1"/>
+        <Image Grid.ColumnSpan="2" Margin="94,273,848,236" Grid.Row="1" Source="/submarine.png" Stretch="Fill" Grid.Column="1"/>
+        <Image Margin="76,280,853,129" Grid.Row="1" Source="/destroyer.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.Column="1"/>
     </Grid>
 </Window>
     

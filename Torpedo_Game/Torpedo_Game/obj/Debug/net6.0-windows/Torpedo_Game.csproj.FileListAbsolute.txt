@@ -56,7 +56,6 @@ C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\bin\Debug\net6.0
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\bin\Debug\net6.0-windows\GalaSoft.MvvmLight.dll
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\bin\Debug\net6.0-windows\System.Windows.Interactivity.dll
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\bin\Debug\net6.0-windows\Prism.dll
-C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.csproj.AssemblyReference.cache
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Game.g.cs
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\PvsAIWindow.g.cs
@@ -142,3 +141,4 @@ D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\refint\T
 D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.pdb
 D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.genruntimeconfig.cache
 D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\ref\Torpedo_Game.dll
+C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

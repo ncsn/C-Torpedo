@@ -122,7 +122,13 @@
                             <ColumnDefinition Width="4*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Width="250px" BorderThickness="2" BorderBrush="White" HorizontalAlignment="Left" Margin="-810,1,0,68">
+                        <Border Grid.Column="0" Width="250px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="-810,1,0,68">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="carrierHpGrid" RenderTransformOrigin="0.491,0.582">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -134,7 +140,13 @@
                             </Grid>
                         </Border>
 
-                        <Border Width="200px" Height="50px" BorderThickness="2" BorderBrush="White" Margin="-810,66,847,3">
+                        <Border Width="200px" Height="50px" BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="-810,66,847,3">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="battleshipHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -153,7 +165,13 @@
                             <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" Height="50px" BorderThickness="2" BorderBrush="White" Margin="-809,15,837,54">
+                        <Border Grid.Column="0" Height="50px" BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="-809,15,837,54">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="cruiserHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -163,7 +181,13 @@
                             </Grid>
                         </Border>
 
-                        <Border Width="100px" Height="50px" BorderThickness="2" BorderBrush="White" Margin="-809,80,887,-11">
+                        <Border Width="100px" Height="50px" BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="-809,80,887,-11">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="submarineHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -172,7 +196,13 @@
                             </Grid>
                         </Border>
 
-                        <Border Width="50px" Height="50px" BorderThickness="2" BorderBrush="White" HorizontalAlignment="Left" Margin="-809,145,0,-76">
+                        <Border Width="50px" Height="50px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="-809,145,0,-76">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="destroyerHpGrid" HorizontalAlignment="Left" Width="46">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>

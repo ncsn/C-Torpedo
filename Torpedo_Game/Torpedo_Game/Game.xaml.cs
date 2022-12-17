@@ -42,5 +42,21 @@ namespace Torpedo_Game
             this.playerPlayfield = playerPlayfield;
             this.player1Name = player1Name;
         }
+
+        private void onGridMouseOver(object sender, MouseEventArgs e)
+        {
+        }
+
+        private void onGridMouseClick(object sender, MouseButtonEventArgs e)
+        {
+        }
+
+        private void stats_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void surrendBtn_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }

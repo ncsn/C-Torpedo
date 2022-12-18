@@ -32,7 +32,7 @@
 
         <Label x:Name="welcomeLabel" Content="Build your battlefield" FontFamily="Bernard MT Condensed" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="40" Foreground="White" Margin="44,0,0,0" Grid.Column="2"/>
 
-        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="99,0,0,0" Grid.ColumnSpan="2">
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Grid.ColumnSpan="2">
             <Button x:Name="carrierBtn" Content="Carrier" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch"/>
             <Button x:Name="battleshipBtn" Content="Battleship" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch" />
             <Button x:Name="cruiserBtn" Content="Cruiser" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch"/>
@@ -40,11 +40,13 @@
             <Button x:Name="destroyerBtn" Content="Destroyer" Click="shipBtn" HorizontalContentAlignment="Center" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="#FF9A9A9A" Background="White" FontFamily="Arial" FontSize="18" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FFC5C3C3" HorizontalAlignment="Stretch"/>
             <Button x:Name="Rotate" Content="Rotate" Click="rotateBtn_Click" Width="185" Height="45" Margin="0,0,-2,15" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
         </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="1" Margin="112,560,0,0" Grid.RowSpan="2">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="16,471,0,0" Height="98" Grid.RowSpan="2">
             <Button x:Name="RandomBtn" Click="randomBtn_Click" Content="Random" Width="185" Height="45" Margin="10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
             <Button x:Name="ResetBtn" Click="resetBtn_Click" Content="Reset" Width="185" Height="45" Margin="10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
-            <Button x:Name="SubmitBtn" Click="submitBtn_Click" Content="Submit" Width="185" Height="45" Margin="10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Grid.Column="3" Margin="112,560,0,0" Grid.RowSpan="2">
+            <Button x:Name="SubmitBtn" Click="submitBtn_Click" Content="Submit" Width="185" Height="45" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </StackPanel>
 
         <Label Grid.Column="2" Content=" A   B   C   D   E   F   G   H    I    J" FontFamily="Arial" FontSize="36" Margin="167,112,134,417" Foreground="White" FontWeight="Bold" Grid.RowSpan="2" />

@@ -28,11 +28,11 @@ namespace Torpedo_Game
         public Game(string player1Name, Grid player1PlayfieldGrid, char[,] player1Playfield, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield)
         {
             InitializeComponent();
-            this.Title = player1Name;
             this.myPlayfield = player1Playfield;
 
             this.player1Name = player1Name;
             this.player2Name = player2Name;
+            tableLabel.Content = player1Name + "'s table";
         }
 
         public Game(Grid playfield, char[,] playerPlayfield, string player1Name)

@@ -43,8 +43,7 @@ namespace Torpedo_Game
             vsComputer = true;
             this.player1Name = player1Name;
 
-            this.Title = player1Name + "'s ship placement";
-            welcomeLabel.Content = player1Name + "'s ship placement";
+            welcomeLabel.Content = player1Name + " build your battlefield";
         }
 
         public ShipChoice(string player1Name, string player2Name)
@@ -55,8 +54,7 @@ namespace Torpedo_Game
             this.player1Name = player1Name;
             this.player2Name = player2Name;
 
-            this.Title = player1Name + "'s ship placement";
-            welcomeLabel.Content = player1Name + "'s ship placement";
+            welcomeLabel.Content = player1Name + " build your battlefield";
         }
 
         public ShipChoice(string player1Name, string player2Name, Grid playfield, char[,] battleshipPlayfield)
@@ -69,8 +67,7 @@ namespace Torpedo_Game
             this.player1BattleshipPlayfield = battleshipPlayfield;
             this.player1PlayfieldGrid = playfield;
 
-            this.Title = player2Name + "'s ship placement";
-            welcomeLabel.Content = player2Name + "'s ship placement";
+            welcomeLabel.Content = player2Name + " build your battlefield";
         }
 
         private void onGridMouseClick(object sender, MouseButtonEventArgs e)

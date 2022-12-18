@@ -142,4 +142,3 @@ D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_
 D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.genruntimeconfig.cache
 D:\c#_proj\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\ref\Torpedo_Game.dll
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
-C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\Torpedo_Game.csproj.AssemblyReference.cache

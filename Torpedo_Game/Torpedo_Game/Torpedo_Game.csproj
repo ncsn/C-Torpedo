@@ -11,9 +11,14 @@
 
   <ItemGroup>
     <None Remove="Background.gif" />
+    <None Remove="battleship.png" />
     <None Remove="bg.jpg" />
     <None Remove="bg_game.png" />
+    <None Remove="carrier.png" />
+    <None Remove="cruiser.png" />
     <None Remove="d6h0i32-15f2929e-0015-44de-a2c9-59d30e2923f8.gif" />
+    <None Remove="destroyer.png" />
+    <None Remove="submarine.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,8 +32,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="battleship.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="bg.jpg" />
     <Resource Include="bg_game.png" />
+    <Resource Include="carrier.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="cruiser.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="destroyer.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="submarine.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

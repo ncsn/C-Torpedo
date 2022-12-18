@@ -88,11 +88,12 @@
             </Grid.RowDefinitions>
         </Grid>
 
-        <Image Grid.ColumnSpan="2" Margin="84,94,770,408" Source="/carrier.png" Stretch="Fill" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
+        <Image Source="/carrier.png" Stretch="Fill" Grid.Column="1" Grid.ColumnSpan="2" Margin="81,93,758,405" Grid.Row="1"/>
         <Image Grid.ColumnSpan="2" Margin="88,144,800,361" Grid.Row="1" Source="/battleship.png" Stretch="Fill" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Grid.ColumnSpan="2" Margin="88,173,819,251" Grid.Row="1" Source="/cruiser.png" Stretch="Fill" Grid.Column="1"/>
         <Image Grid.ColumnSpan="2" Margin="94,273,848,236" Grid.Row="1" Source="/submarine.png" Stretch="Fill" Grid.Column="1"/>
         <Image Margin="76,280,853,129" Grid.Row="1" Source="/destroyer.png" Stretch="Fill" Grid.ColumnSpan="2" Grid.Column="1"/>
+
     </Grid>
 </Window>
     

@@ -77,6 +77,7 @@ namespace Torpedo_Game
             this.playerPlayfield = playerPlayfield;
             this.player1Name = player1Name;
             tableLabel.Content = player1Name + "'s table";
+            playerShipsLoad(playfield);
         }
 
         public Game()

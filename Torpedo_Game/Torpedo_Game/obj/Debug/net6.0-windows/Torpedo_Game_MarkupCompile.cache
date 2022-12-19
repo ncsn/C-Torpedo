@@ -5,16 +5,16 @@ exe
 C#
 .cs
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\obj\Debug\net6.0-windows\
-Torpedo_Game
+Torpedo_Game_gi5ww3rt_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\nagy2\Source\Repos\C-Torpedo\Torpedo_Game\Torpedo_Game\App.xaml
 6-1880945189
 11912562017
-121725192312
-200-1716505968
+201166679071
+400861955360
 Game.xaml;MainWindow.xaml;PvsAIWindow.xaml;PvsPWindow.xaml;ScoresWindow.xaml;ShipChoice.xaml;
 
-False
+True
 

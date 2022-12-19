@@ -31,6 +31,9 @@ namespace Torpedo_Game
         Game player2Window;
         Random rnd = new Random();
 
+        private static readonly int rows = 10;
+        private static readonly int columns = 10;
+
         public Game(string player1Name, Grid player1PlayfieldGrid, char[,] player1Playfield, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield)
         {
             InitializeComponent();
@@ -44,6 +47,7 @@ namespace Torpedo_Game
             player2Window = new Game(player1Name, player2Name, player2PlayfieldGrid, player2Playfield, player1Coming, playerStart);
             player2Window.Title = "Torpedo";
             player2Window.Show();
+            playerShipsLoad(player1PlayfieldGrid);
         }
 
         public Game(string player1Name, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield, bool player1Coming, string playerStart)
@@ -63,6 +67,7 @@ namespace Torpedo_Game
             {
                 tableLabel.Content = player1Name + "'s table";
             }
+            playerShipsLoad(player2PlayfieldGrid);
         }
 
         public Game(Grid playfield, char[,] playerPlayfield, string player1Name)
@@ -109,6 +114,56 @@ namespace Torpedo_Game
 
         private void surrendBtn_Click(object sender, RoutedEventArgs e)
         {
+        }
+
+        private void playerShipsLoad(Grid playfield)
+        {
+            for (int unit = playfield.Children.Count - 1; unit >= 0; unit--)
+            {
+                var child = playfield.Children[unit];
+                playfield.Children.RemoveAt(unit);
+                leftTable.Children.Add(child);
+            }
+        }
+
+        private Rectangle shipSettings(int shipLength)
+        {
+            Rectangle ship = new()
+            {
+                Fill = Brushes.DodgerBlue
+            };
+            var Y = rightTable.Width / rows;
+            var X = rightTable.Height / columns;
+            ship.Width = Y;
+            ship.Height = X;
+
+            shipSetName(ship, shipLength);
+
+            ship.Visibility = Visibility.Hidden;
+
+            return ship;
+        }
+
+        private void shipSetName(Rectangle ship, int shipLength)
+        {
+            switch (shipLength)
+            {
+                case 5:
+                    ship.Name = "Carrier";
+                    break;
+                case 4:
+                    ship.Name = "Battleship";
+                    break;
+                case 3:
+                    ship.Name = "Cruiser";
+                    break;
+                case 2:
+                    ship.Name = "Submarine";
+                    break;
+                case 1:
+                    ship.Name = "Destroyer";
+                    break;
+            }
         }
     }
 }

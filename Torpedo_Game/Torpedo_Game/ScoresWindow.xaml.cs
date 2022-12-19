@@ -17,6 +17,7 @@ namespace Torpedo_Game
     /// <summary>
     /// Interaction logic for ScoresWindow.xaml
     /// </summary>
+    /// 
     public partial class ScoresWindow : Window
     {
         public ScoresWindow()

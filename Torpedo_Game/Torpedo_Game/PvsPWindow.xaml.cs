@@ -41,10 +41,10 @@ namespace Torpedo_Game
 
             if (playerNameFilter(player1Name) && playerNameFilter(player2Name))
             {
-                ShipChoice player1ShipChoiceWindow = new(player1Name, player2Name);
-                App.Current.MainWindow = player1ShipChoiceWindow;
+                ShipChoice playerShipChoiceWindow = new(player1Name, player2Name);
+                App.Current.MainWindow = playerShipChoiceWindow;
                 pvspWindow.Close();
-                player1ShipChoiceWindow.Show();
+                playerShipChoiceWindow.Show();
             }
         }
 

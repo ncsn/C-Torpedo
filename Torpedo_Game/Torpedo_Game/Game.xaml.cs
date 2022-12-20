@@ -34,7 +34,7 @@ namespace Torpedo_Game
         public delegate string Hit(int cell);
         public event Hit OnHit;
 
-        char[,] playerPlayfield = new char[10, 10];
+        private char[,] playerPlayfield = new char[10, 10];
 
         Game player2Window;
         Random rnd = new Random();
@@ -59,6 +59,8 @@ namespace Torpedo_Game
             player2Window.Title = "Torpedo";
             player2Window.Show();
             playerShipsLoad(player1PlayfieldGrid);
+            player2Window.OnHit += new Hit(this.onShoot);
+            this.OnHit += new Hit(player2Window.onShoot);
         }
 
         public Game(string player1Name, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield, bool player1Coming, string playerStart)
@@ -93,6 +95,34 @@ namespace Torpedo_Game
 
         public Game()
         {
+        }
+
+        public string onShoot(int cell)
+        {
+            bool isHit = isHitShipUnit(cell);
+
+            setShipUnit(cell, isHit, true);
+
+            if (isHit)
+            {
+                hitsLabelChange();
+                return myPlayfield[cell / rows, cell % columns].ToString();
+            }
+
+            player1Coming = !player1Coming;
+            roundsLabelChange();
+
+            return "false";
+        }
+
+        private bool isHitShipUnit(int cell)
+        {
+            if (char.IsDigit(myPlayfield[cell / rows, cell % columns]))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private string whichPlayerStart(string player1Name, string player2Name)
@@ -150,7 +180,7 @@ namespace Torpedo_Game
                         if (shipUnitName != "false")
                         {
                             setShipUnit(cell, true, false);
-                            shipHpDecrement(shipUnitName);
+                            //shipHpDecrement(shipUnitName);
                             enemyPlayfield[cell / rows, cell % columns] = 'T';
 
                             hitsLabelChange();
@@ -186,46 +216,6 @@ namespace Torpedo_Game
                 var child = playfield.Children[unit];
                 playfield.Children.RemoveAt(unit);
                 leftTable.Children.Add(child);
-            }
-        }
-
-        private Rectangle shipSettings(int shipLength)
-        {
-            Rectangle ship = new()
-            {
-                Fill = Brushes.DodgerBlue
-            };
-            var Y = rightTable.Width / rows;
-            var X = rightTable.Height / columns;
-            ship.Width = Y;
-            ship.Height = X;
-
-            shipSetName(ship, shipLength);
-
-            ship.Visibility = Visibility.Hidden;
-
-            return ship;
-        }
-
-        private void shipSetName(Rectangle ship, int shipLength)
-        {
-            switch (shipLength)
-            {
-                case 5:
-                    ship.Name = "Carrier";
-                    break;
-                case 4:
-                    ship.Name = "Battleship";
-                    break;
-                case 3:
-                    ship.Name = "Cruiser";
-                    break;
-                case 2:
-                    ship.Name = "Submarine";
-                    break;
-                case 1:
-                    ship.Name = "Destroyer";
-                    break;
             }
         }
 
@@ -349,6 +339,7 @@ namespace Torpedo_Game
 
         private void gameEnd(string winner)
         {
+            //NEM MENTI EL 
             //score mentése
             List<Score> scores = ScoreResult.ReadResult("score.json");
             Score newScore = new()
@@ -372,7 +363,8 @@ namespace Torpedo_Game
             startWindow.Show();
         }
 
-        private void shipHpDecrement(string shipUnitName)
+        //Rossz
+       /* private void shipHpDecrement(string shipUnitName)
         {
             switch (shipUnitName)
             {
@@ -392,7 +384,7 @@ namespace Torpedo_Game
                     destroyerHpGrid.Children.RemoveAt(destroyerHpGrid.Children.Count - 1);
                     break;
             }
-        }
+        }*/
 
        private void roundsLabelChange()
         {

@@ -25,14 +25,22 @@ namespace Torpedo_Game
         private bool player1Coming;
         private string playerStart;
         private char[,] myPlayfield = new char[10, 10];
+        private char[,] enemyPlayfield = new char[10, 10];
+        private int changePlayerCounter = 0;
 
         private bool shadowExists = false;
         private int calculatedCell = -1;
+
+        public delegate string Hit(int cell);
+        public event Hit OnHit;
 
         char[,] playerPlayfield = new char[10, 10];
 
         Game player2Window;
         Random rnd = new Random();
+
+        public delegate void CloseWindow();
+        public event CloseWindow onCloseWindow;
 
         private static readonly int rows = 10;
         private static readonly int columns = 10;
@@ -124,6 +132,41 @@ namespace Torpedo_Game
 
         private void onGridMouseClick(object sender, MouseButtonEventArgs e)
         {
+            if (e.ClickCount == 1)
+            {
+                if (player1Coming && windowPlayer1 || !player1Coming && !windowPlayer1)
+                {
+                    deleteShadow();
+                    shadowExists = false;
+
+                    int cell = calculateCell();
+
+                    bool shooted = isCellShooted(cell);
+
+                    if (!shooted)
+                    {
+                        string shipUnitName = this.OnHit(cell);
+
+                        if (shipUnitName != "false")
+                        {
+                            setShipUnit(cell, true, false);
+                            shipHpDecrement(shipUnitName);
+                            enemyPlayfield[cell / rows, cell % columns] = 'T';
+
+                            hitsLabelChange();
+                            everyShipDestroyed();
+                        }
+                        else
+                        {
+                            setShipUnit(cell, false, false);
+                            enemyPlayfield[cell / rows, cell % columns] = 'V';
+
+                            player1Coming = !player1Coming;
+                            roundsLabelChange();
+                        }
+                    }
+                }
+            }
         }
 
         private void stats_Click(object sender, RoutedEventArgs e)
@@ -186,6 +229,27 @@ namespace Torpedo_Game
             }
         }
 
+        private void hitsLabelChange()
+        {
+            if (windowPlayer1 && player1Coming)
+            {
+                playerHitsLabel.Content = Convert.ToInt32(playerHitsLabel.Content) + 1;
+            }
+            else if (!windowPlayer1 && !player1Coming)
+            {
+                computerHitsLabel.Content = Convert.ToInt32(computerHitsLabel.Content) + 1;
+            }
+
+            if (windowPlayer1 && !player1Coming)
+            {
+                computerHitsLabel.Content = Convert.ToInt32(computerHitsLabel.Content) + 1;
+            }
+            else if (!windowPlayer1 && player1Coming)
+            {
+                playerHitsLabel.Content = Convert.ToInt32(playerHitsLabel.Content) + 1;
+            }
+        }
+
         private int calculateCell()
         {
             var point = Mouse.GetPosition(rightTable);
@@ -233,6 +297,125 @@ namespace Torpedo_Game
             shadow.Height = X;
 
             return shadow;
+        }
+
+        private bool isCellShooted(int cell)
+        {
+            if (enemyPlayfield[cell / rows, cell % columns] == 'T' || enemyPlayfield[cell / rows, cell % columns] == 'V')
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void setShipUnit(int cell, bool isHit, bool setLeftTable)
+        {
+            Rectangle ship = shipUnitSettings(isHit);
+
+            Grid.SetRow(ship, cell / rows);
+            Grid.SetColumn(ship, cell % columns);
+
+            if (setLeftTable)
+            {
+                leftTable.Children.Add(ship);
+            }
+            else
+            {
+                rightTable.Children.Add(ship);
+            }
+        }
+
+        private Rectangle shipUnitSettings(bool isHit)
+        {
+            Rectangle unit = new Rectangle();
+
+            if (isHit)
+            {
+                unit.Fill = Brushes.DarkRed;
+            }
+            else
+            {
+                unit.Fill = Brushes.LightGray;
+            }
+
+            var Y = unit.Width / rows;
+            var X = unit.Height / columns;
+            unit.Width = Y;
+            unit.Height = X;
+
+            return unit;
+        }
+
+        private void gameEnd(string winner)
+        {
+            //score mentése
+            List<Score> scores = ScoreResult.ReadResult("score.json");
+            Score newScore = new()
+            {
+                Enemy = player2Name,
+                EnemyHits = Convert.ToInt32(computerHitsLabel.Content),
+                Player = player1Name,
+                PlayerHits = Convert.ToInt32(playerHitsLabel.Content),
+                Rounds = Convert.ToInt32(roundsLabel.Content),
+                Winner = winner
+            };
+
+            scores.Add(newScore);
+            ScoreResult.WriteResult(scores, "score.json");
+
+
+            this.onCloseWindow();
+
+            MainWindow startWindow = new MainWindow();
+            this.Close();
+            startWindow.Show();
+        }
+
+        private void shipHpDecrement(string shipUnitName)
+        {
+            switch (shipUnitName)
+            {
+                case "5":
+                    carrierHpGrid.Children.RemoveAt(carrierHpGrid.Children.Count - 1);
+                    break;
+                case "4":
+                    battleshipHpGrid.Children.RemoveAt(battleshipHpGrid.Children.Count - 1);
+                    break;
+                case "3":
+                    cruiserHpGrid.Children.RemoveAt(cruiserHpGrid.Children.Count - 1);
+                    break;
+                case "2":
+                    submarineHpGrid.Children.RemoveAt(submarineHpGrid.Children.Count - 1);
+                    break;
+                case "1":
+                    destroyerHpGrid.Children.RemoveAt(destroyerHpGrid.Children.Count - 1);
+                    break;
+            }
+        }
+
+       private void roundsLabelChange()
+        {
+            changePlayerCounter++;
+
+            if (changePlayerCounter % 2 == 0)
+            {
+                roundsLabel.Content = Convert.ToInt32(roundsLabel.Content) + 1;
+            }
+        }
+
+        private void everyShipDestroyed()
+        {
+            if (playerHitsLabel.Content.ToString() == "15")
+            {
+                MessageBox.Show(player1Name + " won the game!", "The game is over", MessageBoxButton.OK);
+                gameEnd(player1Name);
+            }
+            else if (computerHitsLabel.Content.ToString() == "15")
+            {
+                MessageBox.Show(player2Name + " won the game!", "The game is over", MessageBoxButton.OK);
+                gameEnd(player2Name);
+            }
         }
     }
 }

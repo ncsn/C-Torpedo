@@ -26,6 +26,9 @@ namespace Torpedo_Game
         private string playerStart;
         private char[,] myPlayfield = new char[10, 10];
 
+        private bool shadowExists = false;
+        private int calculatedCell = -1;
+
         char[,] playerPlayfield = new char[10, 10];
 
         Game player2Window;
@@ -101,6 +104,22 @@ namespace Torpedo_Game
 
         private void onGridMouseOver(object sender, MouseEventArgs e)
         {
+            int cell = calculateCell();
+
+            if (calculatedCell != cell)
+            {
+                calculatedCell = cell;
+
+                deleteShadow();
+
+                Rectangle shadow = shadowUnitSettings();
+
+                Grid.SetRow(shadow, cell / rows);
+                Grid.SetColumn(shadow, cell % columns);
+
+                rightTable.Children.Add(shadow);
+                shadowExists = true;
+            }
         }
 
         private void onGridMouseClick(object sender, MouseButtonEventArgs e)
@@ -165,6 +184,55 @@ namespace Torpedo_Game
                     ship.Name = "Destroyer";
                     break;
             }
+        }
+
+        private int calculateCell()
+        {
+            var point = Mouse.GetPosition(rightTable);
+
+            int row = 0;
+            int col = 0;
+            double accumulatedHeight = 0.0;
+            double accumulatedWidth = 0.0;
+
+            foreach (var rowDefinition in rightTable.RowDefinitions)
+            {
+                accumulatedHeight += rowDefinition.ActualHeight;
+                if (accumulatedHeight >= point.Y)
+                    break;
+                row++;
+            }
+
+            foreach (var columnDefinition in rightTable.ColumnDefinitions)
+            {
+                accumulatedWidth += columnDefinition.ActualWidth;
+                if (accumulatedWidth >= point.X)
+                    break;
+                col++;
+            }
+
+            return (row * 10) + col;
+        }
+
+        private void deleteShadow()
+        {
+            if (shadowExists)
+            {
+                int lastItem = rightTable.Children.Count - 1;
+                rightTable.Children.RemoveAt(lastItem);
+            }
+        }
+
+        private Rectangle shadowUnitSettings()
+        {
+            var shadow = new Rectangle();
+            shadow.Fill = Brushes.LightGray;
+            var Y = rightTable.Width / rows;
+            var X = rightTable.Height / columns;
+            shadow.Width = Y;
+            shadow.Height = X;
+
+            return shadow;
         }
     }
 }

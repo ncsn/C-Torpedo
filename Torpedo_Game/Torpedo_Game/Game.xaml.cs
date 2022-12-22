@@ -58,6 +58,9 @@ namespace Torpedo_Game
             player2Window = new Game(player1Name, player2Name, player2PlayfieldGrid, player2Playfield, player1Coming, playerStart);
             player2Window.Title = "Torpedo";
             player2Window.Show();
+            initializeLabels(player1Name, player2Name, playerStart);
+
+            shipStatHpInit();
             playerShipsLoad(player1PlayfieldGrid);
             player2Window.OnHit += new Hit(this.onShoot);
             this.OnHit += new Hit(player2Window.onShoot);
@@ -80,6 +83,7 @@ namespace Torpedo_Game
             {
                 tableLabel.Content = player1Name + "'s table";
             }
+            shipStatHpInit();
             playerShipsLoad(player2PlayfieldGrid);
         }
 
@@ -126,6 +130,18 @@ namespace Torpedo_Game
             }
         }
 
+        private void initializeLabels(string player1Name, string player2Name, string playerStart)
+        {
+            player1infoLabel.Content = player1Name + " Hits:";
+            player2infoLabel.Content = player2Name + " Hits:";
+
+            player2Window.player1infoLabel.Content = player1Name + " Hits:";
+            player2Window.player2infoLabel.Content = player2Name + " Hits:";
+
+            playerComingLabel.Content = playerStart + " is coming";
+            player2Window.playerComingLabel.Content = playerStart + " is coming";
+        }
+
         private void onGridMouseOver(object sender, MouseEventArgs e)
         {
             int cell = calculateCell();
@@ -166,7 +182,7 @@ namespace Torpedo_Game
                         if (shipUnitName != "false")
                         {
                             setShipUnit(cell, true, false);
-                            //shipHpDecrement(shipUnitName);
+                            shipHpDecrement(shipUnitName);
                             enemyPlayfield[cell / rows, cell % columns] = 'T';
 
                             hitsLabelChange();
@@ -179,9 +195,22 @@ namespace Torpedo_Game
 
                             player1Coming = !player1Coming;
                             roundsLabelChange();
+                            whichPlayerComingLabelChange();
                         }
                     }
                 }
+            }
+        }
+
+        private void whichPlayerComingLabelChange()
+        {
+            if (player1Coming)
+            {
+                playerComingLabel.Content = player1Name + " is coming";
+            }
+            else
+            {
+                playerComingLabel.Content = player2Name + " is coming";
             }
         }
 
@@ -193,6 +222,14 @@ namespace Torpedo_Game
 
         private void surrendBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (windowPlayer1)
+            {
+                gameEnd(player2Name);
+            }
+            else
+            {
+                gameEnd(player1Name);
+            }
         }
 
         private void playerShipsLoad(Grid playfield)
@@ -346,9 +383,49 @@ namespace Torpedo_Game
             this.Close();
             startWindow.Show();
         }
+        private Rectangle shipHpSettings(int shipLength)
+        {
+            Rectangle hpUnit = new Rectangle();
+            hpUnit.Fill = Brushes.Green;
+            var Y = carrierHpGrid.Width;
+            var X = carrierHpGrid.Height / shipLength;
+            hpUnit.Width = Y;
+            hpUnit.Height = X;
 
-        //Rossz
-       /* private void shipHpDecrement(string shipUnitName)
+            return hpUnit;
+        }
+        private void shipStatHpInit()
+        {
+            for (int ship = 5; ship > 0; ship--)
+            {
+                for (int unit = 0; unit < ship; unit++)
+                {
+                    Rectangle hpUnit = shipHpSettings(ship);
+
+                    Grid.SetColumn(hpUnit, unit);
+
+                    switch (ship)
+                    {
+                        case 5:
+                            carrierHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 4:
+                            battleshipHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 3:
+                            cruiserHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 2:
+                            submarineHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 1:
+                            destroyerHpGrid.Children.Add(hpUnit);
+                            break;
+                    }
+                }
+            }
+        }
+        private void shipHpDecrement(string shipUnitName)
         {
             switch (shipUnitName)
             {
@@ -368,7 +445,7 @@ namespace Torpedo_Game
                     destroyerHpGrid.Children.RemoveAt(destroyerHpGrid.Children.Count - 1);
                     break;
             }
-        }*/
+        }
 
        private void roundsLabelChange()
         {

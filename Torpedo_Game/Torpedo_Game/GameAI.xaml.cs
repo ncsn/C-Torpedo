@@ -40,7 +40,9 @@ namespace Torpedo_Game
             this.playerPlayfield = playerPlayfield;
             this.player1Name = player1Name;
             tableLabel.Content = player1Name + "'s table";
+            playerLabel.Content = player1Name + " Hits:";
             playerShipsLoad(playfield);
+            shipStatHpInit();
         }
 
         private void playerShipsLoad(Grid playfield)
@@ -300,7 +302,51 @@ namespace Torpedo_Game
                     break;
             }
         }
+        private Rectangle shipHpSettings(int shipLength)
+        {
+            Rectangle hpUnit = new()
+            {
+                Fill = Brushes.Green
+            };
+            var Y = carrierHpGrid.Width;
+            var X = carrierHpGrid.Height / shipLength;
+            hpUnit.Width = Y;
+            hpUnit.Height = X;
 
+            return hpUnit;
+        }
+        private void shipStatHpInit()
+        {
+
+            for (int ship = 5; ship > 0; ship--)
+            {
+                for (int unit = 0; unit < ship; unit++)
+                {
+                    Rectangle hpUnit = shipHpSettings(ship);
+
+                    Grid.SetColumn(hpUnit, unit);
+
+                    switch (ship)
+                    {
+                        case 5:
+                            carrierHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 4:
+                            battleshipHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 3:
+                            cruiserHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 2:
+                            submarineHpGrid.Children.Add(hpUnit);
+                            break;
+                        case 1:
+                            destroyerHpGrid.Children.Add(hpUnit);
+                            break;
+                    }
+                }
+            }
+        }
         private void shipHp(int s)
         {
             Debug.WriteLine(s);
@@ -329,10 +375,16 @@ namespace Torpedo_Game
 
         private void stats_Click(object sender, RoutedEventArgs e)
         {
+            ScoresWindow scoreWindow = new ScoresWindow();
+            scoreWindow.Show();
         }
 
         private void surrendBtn_Click(object sender, RoutedEventArgs e)
         {
+            onScore("AI");
+            MainWindow startWindow = new MainWindow();
+            this.Close();
+            startWindow.Show();
         }
     }
 }

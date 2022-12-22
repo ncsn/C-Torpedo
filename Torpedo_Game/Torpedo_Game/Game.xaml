@@ -25,13 +25,13 @@
             <Label Grid.Column="2" Content="Rounds:" FontFamily="Arial" FontSize="30px" HorizontalContentAlignment="Right" Foreground="White" HorizontalAlignment="Left" Width="129" Margin="230,29,0,684" Grid.RowSpan="2" FontWeight="Bold"/>
             <Label Grid.Column="2" x:Name="roundsLabel" Content="0" FontFamily="Arial" FontSize="30px" Foreground="White" Margin="359,29,18,684" Grid.RowSpan="2" FontWeight="Bold"/>
 
-            <Label Grid.Column="0" Content="Player1 hits:" FontFamily="Arial" FontSize="26px" Margin="71,31,187,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name ="player1infoLabel" Grid.Column="0" Content="Player1 hits:" FontFamily="Arial" FontSize="26px" Margin="71,31,187,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
             <Label x:Name="player1HitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,31,138,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
 
-            <Label Content="Player2 hits:" FontFamily="Arial" FontSize="26px" Margin="69,75,146,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name ="player2infoLabel" Content="Player2 hits:" FontFamily="Arial" FontSize="26px" Margin="69,75,146,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
             <Label x:Name="player2HitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,75,157,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
 
-            <Label Grid.Row="1" x:Name="playerComingLabel" Content="Player 1/2 is coming" FontFamily="Arial" FontSize="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFD0B7B7" Grid.Column="1" Grid.ColumnSpan="2" Margin="251,148,0,0"/>
+            <Label Grid.Row="1" x:Name="playerComingLabel" Content="Player1/2 is coming" FontFamily="Arial" FontSize="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFD0B7B7" Grid.Column="1" Grid.ColumnSpan="2" Margin="251,148,0,0"/>
 
             <Button Click="surrendBtn_Click" x:Name="surrrendBtn" Content="Surrend" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" Margin="55,574,155,72" Grid.Row="1"/>
             <Button Content="Stats" Width="185" Height="45" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" Margin="71,18,171,8" Click="stats_Click"/>
@@ -144,12 +144,6 @@
                         </Grid.ColumnDefinitions>
 
                         <Border  Width="250px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="22,-245,0,319" Grid.ColumnSpan="2">
-                            <Border.OpacityMask>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black"/>
-                                    <GradientStop Color="#FFB79797" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="carrierHpGrid" RenderTransformOrigin="0.491,0.582">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -162,12 +156,6 @@
                         </Border>
 
                         <Border  Width="200px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="22,-174,0,247">
-                            <Border.OpacityMask>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black"/>
-                                    <GradientStop Color="#FFB79797" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="battleshipHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -179,12 +167,6 @@
                         </Border>
 
                         <Border BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="22,-97,67,171">
-                            <Border.OpacityMask>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black"/>
-                                    <GradientStop Color="#FFB79797" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="cruiserHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -195,12 +177,6 @@
                         </Border>
 
                         <Border BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="22,-26,112,99">
-                            <Border.OpacityMask>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black"/>
-                                    <GradientStop Color="#FFB79797" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.OpacityMask>
                             <Grid ShowGridLines="True" Name="submarineHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -210,13 +186,7 @@
                         </Border>
 
                         <Border Width="50px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="22,46,0,26">
-                            <Border.OpacityMask>
-                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                    <GradientStop Color="Black"/>
-                                    <GradientStop Color="#FFB79797" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Border.OpacityMask>
-                            <Grid ShowGridLines="True" Name="destroyerHpGrid" HorizontalAlignment="Left" Width="46" Margin="2,124,0,-124">
+                            <Grid ShowGridLines="True" Name="destroyerHpGrid">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>

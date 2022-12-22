@@ -386,7 +386,7 @@ namespace Torpedo_Game
                 }
                 else if (vsComputer)
                 {
-                    Game battleshipPlayfieldWindow = new(playfield, battleshipPlayfield, player1Name);
+                    GameAI battleshipPlayfieldWindow = new(playfield, battleshipPlayfield, player1Name);
                     App.Current.MainWindow = battleshipPlayfieldWindow;
                     this.Close();
                     battleshipPlayfieldWindow.Show();

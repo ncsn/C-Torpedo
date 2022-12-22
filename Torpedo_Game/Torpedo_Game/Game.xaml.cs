@@ -83,20 +83,6 @@ namespace Torpedo_Game
             playerShipsLoad(player2PlayfieldGrid);
         }
 
-        public Game(Grid playfield, char[,] playerPlayfield, string player1Name)
-        {
-            InitializeComponent();
-
-            this.playerPlayfield = playerPlayfield;
-            this.player1Name = player1Name;
-            tableLabel.Content = player1Name + "'s table";
-            playerShipsLoad(playfield);
-        }
-
-        public Game()
-        {
-        }
-
         public string onShoot(int cell)
         {
             bool isHit = isHitShipUnit(cell);
@@ -223,20 +209,20 @@ namespace Torpedo_Game
         {
             if (windowPlayer1 && player1Coming)
             {
-                playerHitsLabel.Content = Convert.ToInt32(playerHitsLabel.Content) + 1;
+                player1HitsLabel.Content = Convert.ToInt32(player1HitsLabel.Content) + 1;
             }
             else if (!windowPlayer1 && !player1Coming)
             {
-                computerHitsLabel.Content = Convert.ToInt32(computerHitsLabel.Content) + 1;
+                player2HitsLabel.Content = Convert.ToInt32(player2HitsLabel.Content) + 1;
             }
 
             if (windowPlayer1 && !player1Coming)
             {
-                computerHitsLabel.Content = Convert.ToInt32(computerHitsLabel.Content) + 1;
+                player2HitsLabel.Content = Convert.ToInt32(player2HitsLabel.Content) + 1;
             }
             else if (!windowPlayer1 && player1Coming)
             {
-                playerHitsLabel.Content = Convert.ToInt32(playerHitsLabel.Content) + 1;
+                player1HitsLabel.Content = Convert.ToInt32(player1HitsLabel.Content) + 1;
             }
         }
 
@@ -339,15 +325,13 @@ namespace Torpedo_Game
 
         private void gameEnd(string winner)
         {
-            //NEM MENTI EL 
-            //score mentése
             List<Score> scores = ScoreResult.ReadResult("score.json");
             Score newScore = new()
             {
                 Enemy = player2Name,
-                EnemyHits = Convert.ToInt32(computerHitsLabel.Content),
+                EnemyHits = Convert.ToInt32(player2HitsLabel.Content),
                 Player = player1Name,
-                PlayerHits = Convert.ToInt32(playerHitsLabel.Content),
+                PlayerHits = Convert.ToInt32(player1HitsLabel.Content),
                 Rounds = Convert.ToInt32(roundsLabel.Content),
                 Winner = winner
             };
@@ -398,12 +382,12 @@ namespace Torpedo_Game
 
         private void everyShipDestroyed()
         {
-            if (playerHitsLabel.Content.ToString() == "15")
+            if (player1HitsLabel.Content.ToString() == "15")
             {
                 MessageBox.Show(player1Name + " won the game!", "The game is over", MessageBoxButton.OK);
                 gameEnd(player1Name);
             }
-            else if (computerHitsLabel.Content.ToString() == "15")
+            else if (player2HitsLabel.Content.ToString() == "15")
             {
                 MessageBox.Show(player2Name + " won the game!", "The game is over", MessageBoxButton.OK);
                 gameEnd(player2Name);

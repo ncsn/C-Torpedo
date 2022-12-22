@@ -10,6 +10,9 @@
     <Compile Update="Game.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="GameAI.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="PvsAIWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -25,6 +28,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Game.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="GameAI.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

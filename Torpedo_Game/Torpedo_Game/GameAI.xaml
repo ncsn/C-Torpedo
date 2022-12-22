@@ -1,0 +1,228 @@
+﻿<Window x:Class="Torpedo_Game.GameAI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Torpedo_Game"
+        mc:Ignorable="d"
+        Title="Torpedo" Height="800" Width="1280" WindowStartupLocation="Manual" ResizeMode="NoResize">
+    <Grid>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="/bg.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="2" Content="Rounds:" FontFamily="Arial" FontSize="30px" HorizontalContentAlignment="Right" Foreground="White" HorizontalAlignment="Left" Width="129" Margin="230,29,0,684" Grid.RowSpan="2" FontWeight="Bold"/>
+            <Label Grid.Column="2" x:Name="roundsLabel" Content="0" FontFamily="Arial" FontSize="30px" Foreground="White" Margin="359,29,18,684" Grid.RowSpan="2" FontWeight="Bold"/>
+
+            <Label Grid.Column="0" Content="Player hits:" FontFamily="Arial" FontSize="26px" Margin="71,31,187,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="playerHitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="225,31,152,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+
+            <Label Content="Computer hits:" FontFamily="Arial" FontSize="26px" Margin="69,75,146,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="computerHitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="266,75,130,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+
+            <Button Click="surrendBtn_Click" x:Name="surrrendBtn" Content="Surrend" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" Margin="55,574,155,72" Grid.Row="1"/>
+            <Button Content="Stats" Width="185" Height="45" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" Margin="71,18,171,8" Click="stats_Click"/>
+
+            <Label Grid.Column="1" Content="Let the fight begin" FontFamily="Bernard MT Condensed" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Foreground="White" Margin="0,71,0,0" Grid.RowSpan="2"/>
+            <Label x:Name="tableLabel" Grid.Row="0" Grid.Column="1" Content="table" FontFamily="Bernard MT Condensed" HorizontalAlignment="Center" FontSize="40" Foreground="White" Margin="0,16,0,1"/>
+
+            <Label Grid.Row="1" Content="A   B  C   D  E   F  G  H    I   J" FontFamily="Arial" FontSize="30px" Margin="366,218,71,-188" Foreground="White" Grid.ColumnSpan="2" />
+            <TextBlock Grid.Row="1" Text="0" FontFamily="Arial" FontSize="36" Margin="377,257,11,396" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="1" FontFamily="Arial" FontSize="36" Margin="377,300,11,358" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="2" FontFamily="Arial" FontSize="36" Margin="377,340,12,313" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="3" FontFamily="Arial" FontSize="36" Margin="377,385,10,265" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="4" FontFamily="Arial" FontSize="36" Margin="377,426,20,226" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="5" FontFamily="Arial" FontSize="36" Margin="377,467,20,186" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="6" FontFamily="Arial" FontSize="36" Margin="377,510,20,142" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="7" FontFamily="Arial" FontSize="36" Margin="377,554,20,88" TextWrapping="Wrap" Foreground="White"  Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="8" FontFamily="Arial" FontSize="36" Margin="377,594,21,57" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+            <TextBlock Grid.Row="1" Text="9" FontFamily="Arial" FontSize="36" Margin="377,636,20,12" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
+
+            <Grid Name="leftTable" Grid.Row="1" Grid.Column="0" Background="Transparent" Margin="364,255,71,15" ShowGridLines="True" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Label Grid.Row="1" Grid.Column="1" Content="A   B  C   D  E   F  G  H    I   J" FontFamily="Arial" FontSize="30px" Margin="406,218,20,-188" Foreground="White" Grid.ColumnSpan="2" />
+            <TextBlock Grid.Row="1" Text="0" FontFamily="Arial" FontSize="36" Margin="331,257,58,396" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="1" FontFamily="Arial" FontSize="36" Margin="331,300,58,358" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="2" FontFamily="Arial" FontSize="36" Margin="331,340,59,313" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="3" FontFamily="Arial" FontSize="36" Margin="331,385,57,265" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="4" FontFamily="Arial" FontSize="36" Margin="331,426,68,229" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="5" FontFamily="Arial" FontSize="36" Margin="331,467,68,190" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="6" FontFamily="Arial" FontSize="36" Margin="331,510,68,148" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="7" FontFamily="Arial" FontSize="36" Margin="331,554,68,101" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="8" FontFamily="Arial" FontSize="36" Margin="331,594,69,61" TextWrapping="Wrap" Foreground="White"/>
+            <TextBlock Grid.Row="1" Text="9" FontFamily="Arial" FontSize="36" Margin="331,636,68,12" TextWrapping="Wrap" Foreground="White"/>
+            <Grid Name="rightTable" Grid.Row="1" Grid.Column="1" Margin="403,255,30,15" ShowGridLines="True" Background="Transparent" PreviewMouseMove="onGridMouseOver" PreviewMouseLeftButtonDown="onGridMouseClick" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="36,204,390,-274">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="149*"/>
+                    <ColumnDefinition Width="279*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.ColumnSpan="2" Margin="0,-60,0,60">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="119*"></RowDefinition>
+                        <RowDefinition Height="119*"></RowDefinition>
+                        <RowDefinition Height="119*"></RowDefinition>
+                        <RowDefinition Height="134*"></RowDefinition>
+                        <RowDefinition Height="102*"></RowDefinition>
+                        <RowDefinition Height="121*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="2" Margin="-20,0,20,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="237*"/>
+                            <ColumnDefinition Width="133*"/>
+                            <ColumnDefinition Width="57*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border  Width="250px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="22,-245,0,319" Grid.ColumnSpan="2">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
+                            <Grid ShowGridLines="True" Name="carrierHpGrid" RenderTransformOrigin="0.491,0.582">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                        <Border  Width="200px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="22,-174,0,247">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
+                            <Grid ShowGridLines="True" Name="battleshipHpGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                        <Border BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="22,-97,67,171">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
+                            <Grid ShowGridLines="True" Name="cruiserHpGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                        <Border BorderThickness="2" BorderBrush="#FFC7C7C7" Margin="22,-26,112,99">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
+                            <Grid ShowGridLines="True" Name="submarineHpGrid">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                        <Border Width="50px" BorderThickness="2" BorderBrush="#FFC7C7C7" HorizontalAlignment="Left" Margin="22,46,0,26">
+                            <Border.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black"/>
+                                    <GradientStop Color="#FFB79797" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Border.OpacityMask>
+                            <Grid ShowGridLines="True" Name="destroyerHpGrid" HorizontalAlignment="Left" Width="46" Margin="2,124,0,-124">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

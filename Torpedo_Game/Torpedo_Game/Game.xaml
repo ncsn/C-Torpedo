@@ -6,12 +6,6 @@
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
         Title="Torpedo" Height="800" Width="1280" WindowStartupLocation="Manual" ResizeMode="NoResize">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-            <GradientStop Color="#FFD0D6FF" Offset="1"/>
-            <GradientStop Color="White"/>
-        </LinearGradientBrush>
-    </Window.Background>
 
     <Grid>
         <Grid>
@@ -31,18 +25,20 @@
             <Label Grid.Column="2" Content="Rounds:" FontFamily="Arial" FontSize="30px" HorizontalContentAlignment="Right" Foreground="White" HorizontalAlignment="Left" Width="129" Margin="230,29,0,684" Grid.RowSpan="2" FontWeight="Bold"/>
             <Label Grid.Column="2" x:Name="roundsLabel" Content="0" FontFamily="Arial" FontSize="30px" Foreground="White" Margin="359,29,18,684" Grid.RowSpan="2" FontWeight="Bold"/>
 
-            <Label Grid.Column="0" Content="Player hits:" FontFamily="Arial" FontSize="26px" Margin="71,31,187,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
-            <Label x:Name="playerHitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="225,31,152,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label Grid.Column="0" Content="Player1 hits:" FontFamily="Arial" FontSize="26px" Margin="71,31,187,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="playerHitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,31,138,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
 
-            <Label Content="Computer hits:" FontFamily="Arial" FontSize="26px" Margin="69,75,146,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
-            <Label x:Name="computerHitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="266,75,130,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label Content="Player2 hits:" FontFamily="Arial" FontSize="26px" Margin="69,75,146,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="computerHitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,75,157,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+
+            <Label Grid.Row="1" x:Name="playerComingLabel" Content="Player 1/2 is coming" FontFamily="Arial" FontSize="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFD0B7B7" Grid.Column="1" Grid.ColumnSpan="2" Margin="251,148,0,0"/>
 
             <Button Click="surrendBtn_Click" x:Name="surrrendBtn" Content="Surrend" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" Margin="55,574,155,72" Grid.Row="1"/>
             <Button Content="Stats" Width="185" Height="45" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="16" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" Margin="71,18,171,8" Click="stats_Click"/>
 
             <Label Grid.Column="1" Content="Let the fight begin" FontFamily="Bernard MT Condensed" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Foreground="White" Margin="0,71,0,0" Grid.RowSpan="2"/>
             <Label x:Name="tableLabel" Grid.Row="0" Grid.Column="1" Content="table" FontFamily="Bernard MT Condensed" HorizontalAlignment="Center" FontSize="40" Foreground="White" Margin="0,16,0,1"/>
-            
+
             <Label Grid.Row="1" Content="A   B  C   D  E   F  G  H    I   J" FontFamily="Arial" FontSize="30px" Margin="366,218,71,-188" Foreground="White" Grid.ColumnSpan="2" />
             <TextBlock Grid.Row="1" Text="0" FontFamily="Arial" FontSize="36" Margin="377,257,11,396" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />
             <TextBlock Grid.Row="1" Text="1" FontFamily="Arial" FontSize="36" Margin="377,300,11,358" TextWrapping="Wrap" Foreground="White" Grid.Column="1" />

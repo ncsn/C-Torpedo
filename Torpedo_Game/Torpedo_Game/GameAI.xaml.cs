@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace Torpedo_Game
@@ -32,6 +33,8 @@ namespace Torpedo_Game
         private string player1Name;
         private int playerHits;
         private int changePlayerCounter = 0;
+        int firstHitX, firstHitY, randomX, randomY;
+        bool left, right, down, up, con = false;
 
         public GameAI(Grid playfield, char[,] playerPlayfield, string player1Name)
         {
@@ -154,7 +157,8 @@ namespace Torpedo_Game
 
                         roundsLabelIncrement();
 
-                        //Kell az ai lépése
+                        Random rnd = new Random();
+                        game(rnd);
                         if (isEndGame(1))
                         {
                             onScore("AI");
@@ -166,6 +170,240 @@ namespace Torpedo_Game
                     }
                 }
             }
+        }
+
+        private void game(Random rnd)
+        {
+            bool player = false; // false - AI | true - Player 
+            bool isHit = false;
+
+            while (!player)
+            {
+                if (!con)
+                {
+                    int cell = AiLogics.generateAiShoot(rnd, playerPlayfield);
+                    randomY = cell / rows;
+                    randomX = cell % columns;
+
+                    isHit = shoot(randomY, randomX, "center");
+
+                    if (isHit)
+                    {
+                        firstHitX = randomX;
+                        firstHitY = randomY;
+                    }
+                }
+                else
+                {
+                    isHit = true;
+                }
+
+                while (isHit) //ha eltalálta vagy olyan helyre lőtt ahová nem lehet vagy már lőtt oda
+                {
+                    con = true;
+
+                    int direction = rnd.Next(0, 4);
+
+                    switch (direction)
+                    {
+                        case 0:
+                            while (!up)
+                            {
+                                if (shoot(randomY, randomX, "Up"))
+                                {
+                                    randomY++;
+                                    computerHitsLabelIncerement();
+                                    right = true;
+                                    left = true;
+                                }
+                                else
+                                {
+                                    randomY = firstHitY;
+                                    player = true;
+                                    isHit = false;
+                                    up = true;
+                                    roundsLabelIncrement();
+                                }
+                            }
+                            break;
+                        case 1:
+                            while (!down)
+                            {
+                                if (shoot(randomY, randomX, "Down"))
+                                {
+                                    randomY--;
+                                    right = true;
+                                    left = true;
+                                    computerHitsLabelIncerement();
+                                }
+                                else
+                                {
+                                    randomY = firstHitY;
+                                    player = true;
+                                    isHit = false;
+                                    down = true;
+                                    roundsLabelIncrement();
+                                }
+                            }
+                            break;
+                        case 2:
+                            while (!left)
+                            {
+                                if (shoot(randomY, randomX, "Left"))
+                                {
+                                    randomX--;
+                                    up = true;
+                                    down = true;
+                                    computerHitsLabelIncerement();
+                                }
+                                else
+                                {
+                                    randomX = firstHitX;
+                                    player = true;
+                                    isHit = false;
+                                    left = true;
+                                    roundsLabelIncrement();
+                                }
+                            }
+                            break;
+                        case 3:
+                            while (!right)
+                            {
+                                if (shoot(randomY, randomX, "Right"))
+                                {
+                                    randomX++;
+                                    up = true;
+                                    down = true;
+                                    computerHitsLabelIncerement();
+                                }
+                                else
+                                {
+                                    randomX = firstHitX;
+                                    player = true;
+                                    isHit = false;
+                                    right = true;
+                                    roundsLabelIncrement();
+                                }
+                            }
+                            break;
+                    }
+
+                    if (shipDestroyed(up, down, left, right))
+                    {
+                        break;
+                    }
+
+                }
+
+                player = true;
+            }
+        }
+
+        private void computerHitsLabelIncerement()
+        {
+            computerHitsLabel.Content = Convert.ToInt32(computerHitsLabel.Content) + 1;
+        }
+
+        private void initializeDirection()
+        {
+            up = false;
+            down = false;
+            left = false;
+            right = false;
+        }
+
+        private bool shipDestroyed(bool up, bool down, bool left, bool right)
+        {
+            if (up && down && left && right)
+            {
+                initializeDirection();
+                con = false;
+
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool shoot(int randomY, int randomX, string direction)
+        {
+            switch (direction)
+            {
+                case "Up":
+                    randomY++;
+                    break;
+                case "Down":
+                    randomY--;
+                    break;
+                case "Left":
+                    randomX--;
+                    break;
+                case "Right":
+                    randomX++;
+                    break;
+            }
+
+            if (!AiLogics.isCellWall(randomX, randomY))
+            {
+                if (!AiLogics.isCellShootedAI(randomX, randomY, playerPlayfield))
+                {
+                    if (AiLogics.isHitPlayerShipUnit(randomX, randomY, playerPlayfield))
+                    {
+                        shootedCellChange(randomX, randomY, true);
+                        paintHitCell(randomX, randomY);
+
+                        return true;
+                    }
+                    else
+                    {
+                        shootedCellChange(randomX, randomY, false);
+                        paintMissCell(randomX, randomY);
+
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void shootedCellChange(int randomX, int randomY, bool isHit)
+        {
+            if (isHit)
+            {
+                playerPlayfield[randomY, randomX] = 'T';
+            }
+            else
+            {
+                playerPlayfield[randomY, randomX] = 'V';
+            }
+        }
+
+        private void paintHitCell(int randomX, int randomY)
+        {
+            Rectangle ship = shipHpSettings(1);
+            ship.Fill = Brushes.DarkRed;
+
+            Grid.SetRow(ship, randomY);
+            Grid.SetColumn(ship, randomX);
+
+            leftTable.Children.Add(ship);
+        }
+
+        private void paintMissCell(int randomX, int randomY)
+        {
+            Rectangle ship = shipHpSettings(1);
+            ship.Fill = Brushes.Gray;
+            Grid.SetRow(ship, randomY);
+            Grid.SetColumn(ship, randomX);
+
+            leftTable.Children.Add(ship);
         }
 
         private void onGridMouseOver(object sender, MouseEventArgs e)

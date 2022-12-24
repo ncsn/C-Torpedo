@@ -62,8 +62,12 @@ namespace Torpedo_Game
 
             shipStatHpInit();
             playerShipsLoad(player1PlayfieldGrid);
+
             player2Window.OnHit += new Hit(this.onShoot);
             this.OnHit += new Hit(player2Window.onShoot);
+
+            player2Window.onCloseWindow += new CloseWindow(this.onClose);
+            this.onCloseWindow += new CloseWindow(player2Window.onClose);
         }
 
         public Game(string player1Name, string player2Name, Grid player2PlayfieldGrid, char[,] player2Playfield, bool player1Coming, string playerStart)
@@ -101,6 +105,7 @@ namespace Torpedo_Game
 
             player1Coming = !player1Coming;
             roundsLabelChange();
+            whichPlayerComingLabelChange();
 
             return "false";
         }
@@ -469,6 +474,11 @@ namespace Torpedo_Game
                 MessageBox.Show(player2Name + " won the game!", "The game is over", MessageBoxButton.OK);
                 gameEnd(player2Name);
             }
+        }
+
+        public void onClose()
+        {
+            this.Close();
         }
     }
 }

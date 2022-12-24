@@ -229,10 +229,12 @@ namespace Torpedo_Game
         {
             if (windowPlayer1)
             {
+                MessageBox.Show(player2Name + " won!", player1Name + " surrender", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 gameEnd(player2Name);
             }
             else
             {
+                MessageBox.Show(player1Name + " won!", player2Name + " surrender", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                 gameEnd(player1Name);
             }
         }

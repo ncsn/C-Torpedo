@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Torpedo_Game
 {
-    /// <summary>
-    /// Interaction logic for GameAI.xaml
-    /// </summary>
     public partial class GameAI : Window
     {
         Random rnd = new();
@@ -69,7 +66,7 @@ namespace Torpedo_Game
             }
         }
 
-        private int calculateCell() //which cell the cursor is on
+        private int calculateCell()
         {
             var point = Mouse.GetPosition(rightTable);
 
@@ -134,7 +131,7 @@ namespace Torpedo_Game
                         playerHits++;
                         playerHitsLabel.Content = playerHits;
 
-                        if (isEndGame(0)) // player
+                        if (isEndGame(0))
                         {
                             onScore(player1Name);
                             MessageBox.Show("The Player won!", "Winner", MessageBoxButton.OK, MessageBoxImage.Asterisk);
@@ -174,7 +171,7 @@ namespace Torpedo_Game
 
         private void game(Random rnd)
         {
-            bool player = false; // false - AI | true - Player 
+            bool player = false;
             bool isHit = false;
 
             while (!player)
@@ -198,7 +195,7 @@ namespace Torpedo_Game
                     isHit = true;
                 }
 
-                while (isHit) //ha eltalálta vagy olyan helyre lőtt ahová nem lehet vagy már lőtt oda
+                while (isHit)
                 {
                     con = true;
 
@@ -212,9 +209,10 @@ namespace Torpedo_Game
                                 if (shoot(randomY, randomX, "Up"))
                                 {
                                     randomY++;
-                                    computerHitsLabelIncerement();
                                     right = true;
                                     left = true;
+                                    isHit = true;
+                                    computerHitsLabelIncerement();
                                 }
                                 else
                                 {
@@ -234,6 +232,7 @@ namespace Torpedo_Game
                                     randomY--;
                                     right = true;
                                     left = true;
+                                    isHit = true;
                                     computerHitsLabelIncerement();
                                 }
                                 else
@@ -254,6 +253,7 @@ namespace Torpedo_Game
                                     randomX--;
                                     up = true;
                                     down = true;
+                                    isHit = true;
                                     computerHitsLabelIncerement();
                                 }
                                 else
@@ -274,6 +274,7 @@ namespace Torpedo_Game
                                     randomX++;
                                     up = true;
                                     down = true;
+                                    isHit = true;
                                     computerHitsLabelIncerement();
                                 }
                                 else
@@ -290,6 +291,7 @@ namespace Torpedo_Game
 
                     if (shipDestroyed(up, down, left, right))
                     {
+                        computerHitsLabelIncerement();
                         break;
                     }
 
@@ -302,6 +304,15 @@ namespace Torpedo_Game
         private void computerHitsLabelIncerement()
         {
             computerHitsLabel.Content = Convert.ToInt32(computerHitsLabel.Content) + 1;
+        }
+
+        private void roundsLabelIncrement()
+        {
+            changePlayerCounter++;
+            if (changePlayerCounter % 2 == 0)
+            {
+                roundsLabel.Content = Convert.ToInt32(roundsLabel.Content) + 1;
+            }
         }
 
         private void initializeDirection()
@@ -492,15 +503,6 @@ namespace Torpedo_Game
             ScoreResult.WriteResult(scores, "score.json");
         }
 
-        private void roundsLabelIncrement()
-        {
-            changePlayerCounter++;
-            if (changePlayerCounter % 2 == 0)
-            {
-                roundsLabel.Content = Convert.ToInt32(roundsLabel.Content) + 1;
-            }
-        }
-
         private Rectangle shipSettings(int shipLength)
         {
             Rectangle ship = new()
@@ -621,6 +623,7 @@ namespace Torpedo_Game
         {
             onScore("AI");
             MainWindow startWindow = new MainWindow();
+            MessageBox.Show("The AI won!", "Surrender", MessageBoxButton.OK, MessageBoxImage.Asterisk);
             this.Close();
             startWindow.Show();
         }

@@ -29,7 +29,7 @@
             <Label x:Name="player1HitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,31,138,611" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
 
             <Label x:Name ="player2infoLabel" Content="Player2 hits:" FontFamily="Arial" FontSize="26px" Margin="69,75,146,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
-            <Label x:Name="player2HitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,75,157,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="player2HitsLabel" Content="0" FontFamily="Arial" FontSize="26px" Margin="240,75,138,567" Grid.Row="1" Foreground="White" FontWeight="Bold"/>
 
             <Label Grid.Row="1" x:Name="playerComingLabel" Content="Player1/2 is coming" FontFamily="Arial" FontSize="30px" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFD0B7B7" Grid.Column="1" Grid.ColumnSpan="2" Margin="251,148,0,0"/>
 

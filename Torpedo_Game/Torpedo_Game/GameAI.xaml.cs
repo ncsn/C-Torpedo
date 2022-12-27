@@ -32,6 +32,7 @@ namespace Torpedo_Game
         private int changePlayerCounter = 0;
         int firstHitX, firstHitY, randomX, randomY;
         bool left, right, down, up, con = false;
+        bool aiShipsShow = false;
 
         public GameAI(Grid playfield, char[,] playerPlayfield, string player1Name)
         {
@@ -42,6 +43,7 @@ namespace Torpedo_Game
             tableLabel.Content = player1Name + "'s table";
             playerLabel.Content = player1Name + " Hits:";
             playerShipsLoad(playfield);
+            shipAI(rnd);
             shipStatHpInit();
         }
 
@@ -164,6 +166,26 @@ namespace Torpedo_Game
                             this.Close();
                             startWindow.Show();
                         }
+                    }
+                }
+            }
+        }
+
+        private void aiVisibility_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.LeftCtrl) && Keyboard.IsKeyDown(Key.S))
+            {
+                aiShipsShow = !aiShipsShow;
+
+                for (int unit = 0; unit < 15; unit++)
+                {
+                    if (aiShipsShow)
+                    {
+                        rightTable.Children[unit].Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        rightTable.Children[unit].Visibility = Visibility.Hidden;
                     }
                 }
             }
@@ -610,6 +632,107 @@ namespace Torpedo_Game
             else if (s == 5)
             {
                 carrierHpGrid.Children.RemoveAt(carrierHpGrid.Children.Count - 1);
+            }
+        }
+
+        private void shipAI(Random rnd)
+        {
+            int randomOrient;
+            int randomPosX = (int)rnd.Next(0, 10);
+            int randomPosY = (int)rnd.Next(0, 10);
+
+            bool empty;
+
+            for (int i = 5; i > 0; i--)
+            {
+                empty = false;
+
+                randomOrient = (int)rnd.Next(0, 2);
+
+                if (randomOrient == 0)
+                {
+                    randomPosX = (int)rnd.Next(0, 10 - i + 1);
+                    randomPosY = (int)rnd.Next(0, 10);
+
+                    while (empty == false)
+                    {
+                        if ((randomPosX != 0 && char.IsDigit(aiPlayfield[randomPosY, randomPosX - 1])) || ((randomPosX + i - 1) != 9 && char.IsDigit(aiPlayfield[randomPosY, randomPosX + i])))
+                        {
+                            randomPosX = (int)rnd.Next(0, 10 - i + 1);
+                            randomPosY = (int)rnd.Next(0, 10);
+                        }
+                        else
+                        {
+                            for (int k = 0; k < i; k++)
+                            {
+                                if (char.IsDigit(aiPlayfield[randomPosY, randomPosX + k]) || (randomPosY != 0 && char.IsDigit(aiPlayfield[randomPosY - 1, randomPosX + k])) || (randomPosY != 9 && char.IsDigit(aiPlayfield[randomPosY + 1, randomPosX + k])))
+                                {
+                                    randomPosX = (int)rnd.Next(0, 10 - i + 1);
+                                    randomPosY = (int)rnd.Next(0, 10);
+                                    k = 0;
+                                    break;
+                                }
+                                else if (k == (i - 1))
+                                {
+                                    empty = true;
+                                }
+                            }
+                        }
+                    }
+
+                    for (int col = 0; col < i; col++)
+                    {
+                        Rectangle ship = shipSettings(i);
+
+                        Grid.SetRow(ship, col + randomPosX);
+                        Grid.SetColumn(ship, randomPosY);
+
+                        aiPlayfield[randomPosY, col + randomPosX] = Convert.ToChar(i.ToString());
+                        rightTable.Children.Add(ship);
+                    }
+                }
+                else if (randomOrient == 1)
+                {
+                    randomPosY = (int)rnd.Next(0, 10 - i + 1);
+                    randomPosX = (int)rnd.Next(0, 10);
+
+                    while (empty == false)
+                    {
+                        if ((randomPosY != 0 && char.IsDigit(aiPlayfield[randomPosY - 1, randomPosX])) || ((randomPosY + i - 1) != 9 && char.IsDigit(aiPlayfield[randomPosY + i, randomPosX])))
+                        {
+                            randomPosY = (int)rnd.Next(0, 10 - i + 1);
+                            randomPosX = (int)rnd.Next(0, 10);
+                        }
+                        else
+                        {
+                            for (int k = 0; k < i; k++)
+                            {
+                                if (char.IsDigit(aiPlayfield[randomPosY + k, randomPosX]) || (randomPosX != 0 && char.IsDigit(aiPlayfield[randomPosY + k, randomPosX - 1])) || (randomPosX != 9 && char.IsDigit(aiPlayfield[randomPosY + k, randomPosX + 1])))
+                                {
+                                    randomPosY = (int)rnd.Next(0, 10 - i + 1);
+                                    randomPosX = (int)rnd.Next(0, 10);
+                                    k = 0;
+                                    break;
+                                }
+                                else if (k == (i - 1))
+                                {
+                                    empty = true;
+                                }
+                            }
+                        }
+                    }
+
+                    for (int row = 0; row < i; row++)
+                    {
+                        Rectangle ship = shipSettings(i);
+
+                        Grid.SetRow(ship, randomPosX);
+                        Grid.SetColumn(ship, row + randomPosY);
+
+                        aiPlayfield[randomPosY + row, randomPosX] = Convert.ToChar(i.ToString());
+                        rightTable.Children.Add(ship);
+                    }
+                }
             }
         }
 

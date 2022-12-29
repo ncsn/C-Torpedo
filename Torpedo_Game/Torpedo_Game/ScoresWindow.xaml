@@ -5,18 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Torpedo_Game"
         mc:Ignorable="d"
-        Title="Torpedo" Height="450" Width="800"
+        Title="Torpedo" Height="750" Width="800"
         x:Name="scoreWindow" RenderTransformOrigin="0.5,0.5" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <StackPanel>
-        <StackPanel.Background>
-            <ImageBrush ImageSource="/bg.jpg"/>
-        </StackPanel.Background>
-        <Label Width="124" Foreground="White" FontSize="48" FontFamily="Bernard MT Condensed" Margin="0,40,0,40">
-            <Label.Effect>
-                <DropShadowEffect/>
-            </Label.Effect> Scores
-        </Label>
-        <TextBox Width="325" Height="130" Margin="0,0,0,10"></TextBox>
-        <Button Content="Back" x:Name="backButton" Click="backButton_Click" ClickMode="Press" Width="160" Height="30" Margin="0,0,-2,10" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Stretch"/>
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/bg.jpg"/>
+            </StackPanel.Background>
+            <Button Content="Back" x:Name="backButton" Click="backButton_Click" ClickMode="Press" Width="160" Height="30" FontWeight="Bold" Foreground="White" Background="#FFABABAB" FontFamily="Arial" FontSize="14" BorderThickness="1,1,3,3" ClipToBounds="True" BorderBrush="#FF5A5858" HorizontalAlignment="Left" Margin="25,25,0,0"/>
+            <Label Width="124" Foreground="White" FontSize="48" FontFamily="Bernard MT Condensed" Margin="0,0,0,40" Content="Scores">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Grid>
+                <DataGrid Grid.Row="1" x:Name="table" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Player" IsReadOnly="True" Binding="{Binding Player}" Width="*"/>
+                        <DataGridTextColumn Header="Enemy" IsReadOnly="True" Binding="{Binding Enemy}" Width="*"/>
+                        <DataGridTextColumn Header="Winner" IsReadOnly="True" Binding="{Binding Winner}" Width="*"/>
+                        <DataGridTextColumn Header="PlayerHits" IsReadOnly="True" Binding="{Binding PlayerHits}" Width="*"/>
+                        <DataGridTextColumn Header="EnemyHits" IsReadOnly="True" Binding="{Binding EnemyHits}" Width="*"/>
+                        <DataGridTextColumn Header="Rounds" IsReadOnly="True" Binding="{Binding Rounds}" Width="*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
 </Window>

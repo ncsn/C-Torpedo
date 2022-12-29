@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Torpedo_Game
 {
-    /// <summary>
-    /// Interaction logic for ScoresWindow.xaml
-    /// </summary>
-    /// 
     public partial class ScoresWindow : Window
     {
+        //public List<Score> result;
         public ScoresWindow()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            List<Score> result = ScoreResult.ReadResult("score.json");
+            table.ItemsSource = result;
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)

@@ -13,4 +13,5 @@
   4. Próbáljuk meg az ellenfelünk össze hajóját minél hamarabb megsemmísíteni lehetőleg még mielőtt a mi hajóink vesznének el!
   
 ## További tudnivalók
-  #Később#
+   AI elleni csata esetén az AI hajói a SHIFT + V kombináció megnyomásával láthatóak.
+  

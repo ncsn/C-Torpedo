@@ -128,7 +128,7 @@ namespace Torpedo_Game
                         if (isEndGame(0))
                         {
                             onScore(player1Name);
-                            MessageBox.Show("The Player won!", "Winner", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                            MessageBox.Show("The " + player1Name + " won!", "Winner", MessageBoxButton.OK, MessageBoxImage.Asterisk);
                             MainWindow startWindow = new MainWindow();
                             this.Close();
                             startWindow.Show();

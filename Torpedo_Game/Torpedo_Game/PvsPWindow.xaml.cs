@@ -34,6 +34,10 @@ namespace Torpedo_Game
                 pvspWindow.Close();
                 playerShipChoiceWindow.Show();
             }
+            else
+            {
+                MessageBox.Show("Wrong name", "Error", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
         }
 
         private bool playerNameFilter(string p)

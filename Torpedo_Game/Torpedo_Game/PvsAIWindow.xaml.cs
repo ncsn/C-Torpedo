@@ -24,6 +24,10 @@ namespace Torpedo_Game
                 pvsaiWindow.Close();
                 player1ShipChoiceWindow.Show();
             }
+            else
+            {
+                MessageBox.Show("Wrong name", "Error", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+            }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
